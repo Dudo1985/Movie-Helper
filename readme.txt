@@ -35,6 +35,9 @@ If you are using the classic editor, search and click the image to insert the li
 If you're using the new Gutenberg editor, search and click the image to create a list. Once you've done, click "insert"
 to insert the list to the post.
 
+== Video Tutorial ==
+[youtube https://www.youtube.com/watch?v=QOdCeV7-TR4]
+
 == Installation ==
 1. Navigate to Dashboard -> Plugins -> Add New and search for Movie Helper
 2. Click on "Install Now" and than "Activate"
