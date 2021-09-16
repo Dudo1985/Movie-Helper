@@ -1,0 +1,315 @@
+/********** Editor Page ********/
+.moviehelper-metabox-row {
+    margin: 10px;
+}
+
+.moviehelper-search {
+    text-align: center;
+}
+
+.moviehelper-metabox-title {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.moviehelper-card-container {
+    justify-content: center;
+}
+
+.moviehelper-link-settings-container {
+    margin-top: 5px;
+}
+
+.moviehelper-link-settings-container input{
+    margin-right: -3px;
+}
+.moviehelper-link-settings-container label{
+    margin-right: 3px;
+}
+
+#moviehelper-block-movie-list {
+    margin-top: 5px;
+}
+
+#moviehelper-block-links-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#moviehelper-insert-block-link {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/****** cards ******/
+.moviehelper-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.moviehelper-cards {
+    display: flex;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 230px;
+
+}
+/*
+@media (min-width: 550px) {
+    .moviehelper-cards {
+        width: 40%;
+    }
+}
+@media (min-width: 1024px) {
+    .moviehelper-cards {
+        width: 250px;
+    }
+}*/
+
+.moviehelper-card-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.moviehelper-card-item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.moviehelper-cards .moviehelper-card-item:hover .moviehelper-card-image {
+    opacity: 1;
+}
+.moviehelper-card-info {
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.moviehelper-card-title {
+    font-size: 20px;
+    color: #32325d;
+    text-align: center;
+}
+.moviehelper-card-subtitle {
+    text-align: center;
+}
+
+.moviehelper-card-subtitle-first {
+    font-size: 15px;
+    display: block;
+}
+.moviehelper-card-subtitle-second {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.moviehelper-card-image {
+    height: 330px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 6px 6px 0px 0px;
+    opacity: 0.91;
+}
+
+.moviehelper-error {
+    color: red;
+    font-size: 20px;
+}
+
+/*********** Settings Page **********/
+.form-table th {
+    border-right: 1px solid #ddd;
+}
+
+.moviehelper-element-description {
+    color: #737272;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.moviehelper-donate-title{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.3em;
+    color: #23282d;
+    display: block;
+    font-weight: 600;
+}
+
+.moviehelper-donate-content > p {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.moviehelper-donate-title a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+}
+
+@media (min-width: 1177px) {
+    .moviehelper-settingsdiv {
+        float: left;
+        display: block;
+        width: 65%;
+        background-color: #FFF;
+        border: 1px solid #DDD;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 10px;
+        min-height: 560px;
+    }
+
+    .moviehelper-settingsdiv hr{
+        border-top: 3px solid #ddd;
+    }
+
+    .moviehelper-donatedivdx {
+        float: right;
+        clear: right;
+        min-width: 250px;
+        width: 15%;
+        margin-bottom: 10px;
+        background-color: #FFF;
+        border: 1px solid #DDD;
+        border-radius: 9px;
+        padding: 20px;
+        font-size: 14px;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.15);
+    }
+
+    .moviehelper-donate-content {
+        text-align: center;
+    }
+
+}
+
+/*** Multi page rules ***/
+
+@media (max-width: 1176px) {
+    .moviehelper-settingsdiv {
+        float: left;
+        width: 95%;
+        background-color: #FFF;
+        border: 1px solid #DDD;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+
+    .moviehelper-donatedivdx {
+        display: block !important;
+        width: 95%;
+        background-color: #FFF;
+        margin-top: 10px;
+        border: 1px solid #DDD;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .moviehelper-settings-clear {
+        clear: both;
+        padding-bottom: 10px;
+    }
+
+    .moviehelper-donate-left {
+        text-align: center;
+    }
+
+}
+
+
+.moviehelper-onoffswitch-big {
+    position: relative;
+    width: 85px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.moviehelper-onoffswitch-big-center{
+    margin: 0 auto;
+    text-align: left;
+}
+
+.moviehelper-onoffswitch-checkbox {
+    display: none !important;
+}
+
+.moviehelper-onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #FFFFFF;
+    border-radius: 35px;
+}
+
+.moviehelper-onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.moviehelper-onoffswitch-inner:before, .moviehelper-onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 18px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box !important; /*important for Gutenberg compatibility*/
+
+}
+
+.moviehelper-onoffswitch-inner:before {
+    content: "YES";
+    padding-left: 9px;
+    background-color: #EEEEEE;
+    color: #34A7C1;
+}
+
+.moviehelper-onoffswitch-inner:after {
+    content: "NO";
+    padding-right: 15px;
+    background-color: #EEEEEE;
+    color: #999999;
+    text-align: right;
+}
+
+.moviehelper-onoffswitch-switch {
+    display: block;
+    width: 30px;
+    margin: 0px;
+    background: #A1A1A1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 51px;
+    border: 2px solid #FFFFFF;
+    border-radius: 35px;
+    transition: all 0.1s ease-in 0s;
+}
+
+.moviehelper-onoffswitch-checkbox:checked + .moviehelper-onoffswitch-label .moviehelper-onoffswitch-inner {
+    margin-left: 0;
+}
+
+.moviehelper-onoffswitch-checkbox:checked + .moviehelper-onoffswitch-label .moviehelper-onoffswitch-switch {
+    right: 0px;
+    background-color: #34A7C1;
+}
