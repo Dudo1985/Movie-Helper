@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-09-23 09:32+0200\n"
+"PO-Revision-Date: 2021-09-23 09:36+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/editor/movieHelperEditor.php:73
+msgid "You don't have enough privileges to use Movie Helper"
+msgstr "Non disponi di privilegi sufficienti per utilizzare Movie Helper"
+
+#: admin/editor/moviehelper-below-editor.php:43
+msgid "Search for a movie or TV show"
+msgstr "Cerca un film o un programma TV"
+
+#: admin/editor/moviehelper-below-editor.php:48
+msgid "Search with TMDB"
+msgstr "Cerca con TMDB"
+
+#: admin/editor/moviehelper-below-editor.php:53
+msgid "Click on an image to insert the link"
+msgstr "Clicca su un'immagine per inserire il link"
+
+#: admin/editor/moviehelper-below-editor.php:57
+msgid "After a link, insert a:"
+msgstr "Dopo il link, inserire:"
+
+#: admin/editor/moviehelper-below-editor.php:60
+msgid "White space"
+msgstr "Spazio bianco"
+
+#: admin/editor/moviehelper-below-editor.php:64
+msgid "Newline"
+msgstr "Nuova linea"
+
+#: admin/editor/moviehelper-below-editor.php:71
+msgid "Insert"
+msgstr "Inserisci"
+
+#: admin/js/editor.js:105
+msgid "Insert link"
+msgstr "Inserisci link"
+
+#: admin/js/editor.js:115
+msgid "Open in TMDB"
+msgstr "Apri in TMDB"
+
+#: admin/js/editor.js:152
+msgid "Original Name:"
+msgstr "Nome Originale:"
+
+#: admin/js/editor.js:166
+msgid "Overview not available"
+msgstr "Descrizione non disponibile"
+
+#: admin/js/editor.js:242
+msgid "Error"
+msgstr "Errore"
+
+#: admin/movieHelperSettings.php:37
+msgid "Save all settings"
+msgstr "Salva tutte impostazioni"
+
+#: admin/movieHelperSettings.php:49 admin/movieHelperSettings.php:83
+msgid "Movie Helper: Settings"
+msgstr "Movie Helper: Impostazioni"
+
+#: admin/movieHelperSettings.php:68
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Non hai i permessi sufficienti per accedere a questa pagina."
+
+#: admin/movieHelperSettings.php:118
+msgid "The Movie Database (TMDB) is a community built movie and TV database."
+msgstr ""
+"The Movie Database (TMDB) è un database di film e programmi TV gestito dalla "
+"comunità."
+
+#: admin/movieHelperSettings.php:122
+msgid "General settings"
+msgstr "Impostazioni generali"
+
+#: admin/movieHelperSettings.php:161
+msgid "Api Key"
+msgstr "Chiave Api"
+
+#: admin/movieHelperSettings.php:171
+#, php-format
+msgid ""
+"Click %shere%s to create your API key. A (free) account on TMDB is needed."
+msgstr ""
+"Clicca %squi%s per creare una chiave API. Un account (gratuito) su TMDB è "
+"necessario."
+
+#: admin/movieHelperSettings.php:185
+msgid "Include adult content?"
+msgstr "Includere contenuti per adulti?"
+
+#: admin/movieHelperSettings.php:242
+msgid "Coffee is vital to make Movie Helper development going on!"
+msgstr ""
+"Il Caffè è fondamentale per far andare avanti lo sviluppo di Movie Helper!"
+
+#: admin/movieHelperSettings.php:244
+msgid ""
+"If you are enjoying Movie Helper, please consider to buy me a coffee, thanks!"
+msgstr ""
+"Se ti piace Movie Helper, per favore considera la possibilità di offrirmi un "
+"caffè, grazie!"
+
+#: admin/movieHelperSettings.php:247
+msgid "Buy me a coffee!"
+msgstr "Comprami un caffè!"
+
+#: admin/movieHelperSettings.php:268
+msgid "Can I ask your help?"
+msgstr "Posso chiedere il tuo aiuto?"
+
+#: admin/movieHelperSettings.php:278
+msgid "Please rate Movie Helper 5 stars on"
+msgstr "Per favore vota Movie Helper 5 stelle su"
+
+#: admin/movieHelperSettings.php:281
+msgid " It will require just 1 min but it's a HUGE help for me. Thank you."
+msgstr " Richiederà solo un minuto, ma è un ENORME aiuto per me. Grazie."
+
+#: admin/movieHelperSettings.php:299
+msgid "You may also like..."
+msgstr "Potrebbe interessarti..."

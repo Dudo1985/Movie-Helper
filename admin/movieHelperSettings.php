@@ -158,7 +158,7 @@ class movieHelperSettings {
             $key = $tmdb_settings['api_key'];
         }
         ?>
-        <strong><?php _e('Api Key', 'movie-helper') ?></strong>
+        <strong><?php esc_html_e('Api Key', 'movie-helper') ?></strong>
         <p></p>
             <input
                 type="text"
@@ -168,7 +168,7 @@ class movieHelperSettings {
             > <br />
             <label for="moviehelper-tmdb-apikey" class="moviehelper-element-description">
                 <?php echo wp_kses_post(sprintf(
-                        __('Click %shere%s to create your api KEY. A (free) account on TMDB is needed', 'movie-helper'),
+                        __('Click %shere%s to create your API key. A (free) account on TMDB is needed.', 'movie-helper'),
                     '<a href="https://developers.themoviedb.org/3/getting-started/introduction">', '</a>')); ?>
             </label>
         <?php
@@ -182,7 +182,7 @@ class movieHelperSettings {
             $include_adult = true;
         }
         ?>
-        <strong><?php _e('Include adult content?', 'movie-helper') ?></strong>
+        <strong><?php esc_html_e('Include adult content?', 'movie-helper') ?></strong>
         <p></p>
         <div class="moviehelper-onoffswitch-big">
             <input type="checkbox" name="moviehelper_tmdb_settings[include_adult]"

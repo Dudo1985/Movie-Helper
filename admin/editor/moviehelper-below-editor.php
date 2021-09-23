@@ -40,35 +40,35 @@ if($tmdb_transient === false) {
         <div id="moviehelper-search" class="moviehelper-search">
             <div class="moviehelper-metabox-title">
                 <label for="moviehelper-search-form">
-                    <?php _e('Search for a movie or TV show','movie-helper') ?>
+                    <?php esc_html_e('Search for a movie or TV show','movie-helper') ?>
                 </label>
             </div>
             <input type="text"
                    id="moviehelper-search-form"
-                   placeholder="<?php _e('Search with TMDB', 'movie-helper')?>
+                   placeholder="<?php esc_attr_e('Search with TMDB', 'movie-helper')?>
             ">
             <br/>
             <span>
                 <small>
-                    <?php _e('Click on an image to insert the link', 'movie-helper') ?>
+                    <?php esc_html_e('Click on an image to insert the link', 'movie-helper') ?>
                 </small>
             </span>
             <div class="moviehelper-link-settings-container">
-                <?php _e('After a link, insert a:','movie-helper') ?>
+                <?php esc_html_e('After a link, insert a:','movie-helper') ?>
                 <label>
                     <input type="radio" id="moviehelper-insert-space" value="space" name="moviehelper-after-link">
-                    <?php _e('White space','movie-helper') ?>
+                    <?php esc_html_e('White space','movie-helper') ?>
                 </label>
                 <label>
                     <input type="radio" id="moviehelper-insert-newline" value="newline" name="moviehelper-after-link" checked>
-                    <?php _e('Newline','movie-helper') ?>
+                    <?php esc_html_e('Newline','movie-helper') ?>
                 </label>
             </div>
             <?php if(movieHelper::isGutenPage()) { ?>
                 <div id="moviehelper-block-movie-list"></div>
                 <div id="moviehelper-block-links-container">
                     <button href="#" id="moviehelper-insert-block-link" class="button-primary">
-                        <?php _e('Insert', 'movie-helper') ?>
+                        <?php esc_html_e('Insert', 'movie-helper') ?>
                     </button>
                 </div>
             <?php } ?>

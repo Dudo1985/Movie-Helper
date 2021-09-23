@@ -58,8 +58,6 @@ class movieHelper {
      * @since 1.0.0
      */
     public function defineConstants() {
-        define('MOVIEHELPER_VERSION_NUM', '1.0.0');
-
         //Plugin absolute path
         //e.g. /var/www/html/plugin_development/wp-content/plugins/movie-helper
         //by default, dirname get the parent

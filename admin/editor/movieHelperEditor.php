@@ -70,7 +70,7 @@ class movieHelperEditor {
         if(current_user_can('edit_posts')) {
             include MOVIEHELPER_ABSOLUTE_PATH_ADMIN . '/editor/moviehelper-below-editor.php';
         } else {
-            _e('You don\'t have enough privileges to use Movie Helper', 'movie-helper');
+            esc_html_e('You don\'t have enough privileges to use Movie Helper', 'movie-helper');
         }
     }
 }
