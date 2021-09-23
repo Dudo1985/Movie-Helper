@@ -230,8 +230,8 @@ class movieHelperSettings {
      */
     private function rightPanel () {
         $this->buyACoffee();
-        $this->askRating();
         $this->alsoLike();
+        $this->askRating();
     }
 
     /**
@@ -298,12 +298,13 @@ class movieHelperSettings {
 
         $text  = '<div class="moviehelper-donate-title">' . __('You may also like...', 'movie-helper') .'</div>';
         $text .= '<div class="moviehelper-donate-content">';
-        $text .= '<p>';
         $text .= '<a href="https://wordpress.org/plugins/yet-another-stars-rating/">';
-        $text .= 'YASR - Yet Another Stars Rating';
-        $text .= '</a></p><p>';
-        $text .= 'Boost the way people interact with your site with an easy WordPress stars rating system! 
-        With schema.org rich snippets YASR will improve your SEO!';
+        $text .= '<img src="'.MOVIEHELPER_IMG_DIR.'/yasr.png" alt="yasr" width="110">';
+        $text .= '<div>YASR - Yet Another Stars Rating</div>';
+        $text .= '</a>';
+        $text .= '<p>';
+        $text .= __('Boost the way people interact with your site with an easy WordPress stars rating system! 
+        With Schema.org rich snippets YASR will improve your SEO!', 'movie-helper');
         $text .= '</p>';
         $text .= '</div>';
         $div_and_text = $div . $text . '</div>';
