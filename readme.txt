@@ -55,6 +55,10 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 2. Example of Movie Helper with gutenberg
 3. Movie Helper settings
 
+== Changelog ==
+= 1.0.1 =
+* Added YASR logo and created Italian translation
+
 == Additional Info ==
 Movie Helper works with the [The Movie DB (javascript library)](https://github.com/cavestri/themoviedb-javascript-library/)
 by [cavestri](https://github.com/cavestri)
