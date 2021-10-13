@@ -56,6 +56,10 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 3. Movie Helper settings
 
 == Changelog ==
+
+= 1.0.2 =
+* Added "comment not replied to" logo
+
 = 1.0.1 =
 * Added YASR logo and created Italian translation
 
