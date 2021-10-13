@@ -294,22 +294,57 @@ class movieHelperSettings {
      * @since 1.0.0
      */
     private function alsoLike() {
-        $div = "<div class='moviehelper-donatedivdx' id='moviehelper-buy-cofee'>";
-
-        $text  = '<div class="moviehelper-donate-title">' . __('You may also like...', 'movie-helper') .'</div>';
+        $text  = "<div class='moviehelper-donatedivdx' id='alsolike'>";
+        $text .= '<div class="moviehelper-donate-title">' . __('You may also like...', 'movie-helper') .'</div>';
         $text .= '<div class="moviehelper-donate-content">';
-        $text .= '<a href="https://wordpress.org/plugins/yet-another-stars-rating/">';
+        $text .= $this->yasr();
+        $text .= '</p><hr />';
+        $text .= $this->cnrt();
+        $text .= '</div>'; //second div
+        $text .= '</div>'; //first div
+
+        echo wp_kses_post($text);
+    }
+
+    /**
+     * Yasr Box
+     *
+     * @author Dario Curvino <@dudo>
+     * @since 1.0.2
+     * @return string
+     */
+    private function yasr() {
+        $text = '<a href="https://wordpress.org/plugins/yet-another-stars-rating/">';
         $text .= '<img src="'.MOVIEHELPER_IMG_DIR.'/yasr.png" alt="yasr" width="110">';
         $text .= '<div>YASR - Yet Another Stars Rating</div>';
         $text .= '</a>';
         $text .= '<p>';
         $text .= __('Boost the way people interact with your site with an easy WordPress stars rating system! 
         With Schema.org rich snippets YASR will improve your SEO!', 'movie-helper');
+
+        return $text;
+    }
+
+    /**
+     * CNRT box
+     *
+     * @author Dario Curvino <@dudo>
+     * @since 1.0.2
+     * @return string
+     */
+    private function cnrt() {
+        $text  = '<div class="moviehelper-donate-content">';
+        $text .= '<a href="https://wordpress.org/plugins/comments-not-replied-to/">';
+        $text .= '<img src="'.MOVIEHELPER_IMG_DIR.'/cnrt.png" alt="cnrt" width="110">';
+        $text .= '<div>Comments Not Replied To</div>';
+        $text .= '</a>';
+        $text .= '<p>';
+        $text .= __('"Comments Not Replied To" introduces a new area in the administrative dashboard that allows you to 
+        see what comments to which you - as the site author - have not yet replied.', 'movie-helper');
         $text .= '</p>';
         $text .= '</div>';
-        $div_and_text = $div . $text . '</div>';
 
-        echo wp_kses_post($div_and_text);
+        return $text;
     }
     
 }

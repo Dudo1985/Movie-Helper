@@ -1,6 +1,6 @@
 === Movie Helper ===
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AXE284FYMNWDC
-Tags: movie, tv show, tmdb, movie links, tv links
+Tags: movie, tv show, tmdb, movie database, tv links
 Requires at least: 5.0
 Contributors: Dudo
 Tested up to: 5.8.1

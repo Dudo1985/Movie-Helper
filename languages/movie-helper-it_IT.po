@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-09-23 10:07+0200\n"
-"PO-Revision-Date: 2021-09-23 10:08+0200\n"
+"POT-Creation-Date: 2021-10-13 15:50+0200\n"
+"PO-Revision-Date: 2021-10-13 15:51+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
@@ -47,10 +47,6 @@ msgstr "Nuova linea"
 msgid "Insert"
 msgstr "Inserisci"
 
-#: admin/js/editor.js:105
-msgid "Insert link"
-msgstr "Inserisci link"
-
 #: admin/js/editor.js:115
 msgid "Open in TMDB"
 msgstr "Apri in TMDB"
@@ -58,14 +54,6 @@ msgstr "Apri in TMDB"
 #: admin/js/editor.js:152
 msgid "Original Name:"
 msgstr "Nome Originale:"
-
-#: admin/js/editor.js:166
-msgid "Overview not available"
-msgstr "Descrizione non disponibile"
-
-#: admin/js/editor.js:242
-msgid "Error"
-msgstr "Errore"
 
 #: admin/movieHelperSettings.php:37
 msgid "Save all settings"
@@ -133,11 +121,11 @@ msgstr "Per favore vota Movie Helper 5 stelle su"
 msgid " It will require just 1 min but it's a HUGE help for me. Thank you."
 msgstr " Richiederà solo un minuto, ma è un ENORME aiuto per me. Grazie."
 
-#: admin/movieHelperSettings.php:299
+#: admin/movieHelperSettings.php:298
 msgid "You may also like..."
 msgstr "Potrebbe interessarti..."
 
-#: admin/movieHelperSettings.php:306
+#: admin/movieHelperSettings.php:322
 msgid ""
 "Boost the way people interact with your site with an easy WordPress stars "
 "rating system! \n"
@@ -147,3 +135,24 @@ msgstr ""
 "semplice sistema di rating per WordPress!\n"
 "      Con i dati strutturati standard Schema.org YASR migliorerà anche la "
 "tua SEO!"
+
+#: admin/movieHelperSettings.php:342
+msgid ""
+"\"Comments Not Replied To\" introduces a new area in the administrative "
+"dashboard that allows you to \n"
+"        see what comments to which you - as the site author - have not yet "
+"replied."
+msgstr ""
+"\"Comments Not Replied To\" introduces a new area in the administrative "
+"dashboard that allows you to \n"
+"        see what comments to which you - as the site author - have not yet "
+"replied."
+
+#~ msgid "Insert link"
+#~ msgstr "Inserisci link"
+
+#~ msgid "Overview not available"
+#~ msgstr "Descrizione non disponibile"
+
+#~ msgid "Error"
+#~ msgstr "Errore"
