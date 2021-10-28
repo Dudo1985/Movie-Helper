@@ -114,7 +114,7 @@ class movieHelperSettings {
             [$this, 'sanitizeTMDBSettings']
         );
 
-        $tmdb_settings = get_option('moviehelper_tmdb_settings');
+        $tmdb_settings    = get_option('moviehelper_tmdb_settings');
         $tmdb_description = __('The Movie Database (TMDB) is a community built movie and TV database.', 'movie-helper');
 
         add_settings_section(

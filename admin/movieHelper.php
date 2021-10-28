@@ -29,8 +29,7 @@ class movieHelper {
         $this->getTMDBOptions();
 
         //Run this only on plugin activation (doesn't work on update)
-        //not needed in the first version
-        //register_activation_hook(MOVIEHELPER_ABSOLUTE_PATH.'/movieHelper.php', [$this, 'onActivation']);
+        register_activation_hook(MOVIEHELPER_ABSOLUTE_PATH.'/movie-helper.php', [$this, 'onActivation']);
 
         //load all classes
         $this->autoloadMHClasses();
@@ -136,24 +135,31 @@ class movieHelper {
     }
 
     /**
+     * Actions to do on plugin activation
+     *
      * @author Dario Curvino <@dudo>
      * @since 1.0.0
      * @param $network_wide  //indicate if the plugin is network activated
      */
-    private function onActivation($network_wide) {
+    public function onActivation($network_wide) {
+
+        //do action when plugin is installed for first time
         if(MOVIEHELPER_VERSION_INSTALLED === 0) {
             $this->install($network_wide);
         }
     }
 
     /**
+     * Action to do when plugin is installed for the first time
+     * not yet used
+     *
      * @author Dario Curvino <@dudo>
      * @since 1.0.0
      * @param $network_wide //indicate if the plugin is network activated
      */
     private function install($network_wide) {
         //default settings
-        $this->defaultSettings();
+        //$this->defaultSettings();
     }
 
     /**
