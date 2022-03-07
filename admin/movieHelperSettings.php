@@ -65,7 +65,7 @@ class movieHelperSettings {
      */
     public function optionsPageCallback () {
         if (!current_user_can('manage_options')) {
-            wp_die( __( 'You do not have sufficient permissions to access this page.', 'movie-helper' ) );
+            wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'movie-helper' ) );
         }
 
         $this->settingsPage();
@@ -83,6 +83,7 @@ class movieHelperSettings {
                 <?php esc_html_e('Movie Helper: Settings', 'movie-helper') ?>
             </h2>
             <div class="moviehelper-settingsdiv">
+                <br />
                 <form action="options.php" method="post" id="moviehelper-settings-form">
                     <?php
                         settings_fields('moviehelper_settings_group');
@@ -115,65 +116,34 @@ class movieHelperSettings {
         );
 
         $tmdb_settings    = get_option('moviehelper_tmdb_settings');
-        $tmdb_description = __('The Movie Database (TMDB) is a community built movie and TV database.', 'movie-helper');
 
         add_settings_section(
             'moviehelper_tmdb_section',
-            __('General settings', 'movie-helper'),
+            '',
             '',
             'moviehelper_tmdb_settings'
         );
 
         add_settings_field(
+            'moviehelper_tmdb_filter_adult',
+            esc_html__('The Movie Database (TMDB) Settings', 'movie-helper'),
+            [$this, 'tmdbSettingsFilterAdult'],
+            'moviehelper_tmdb_settings',
+            'moviehelper_tmdb_section',
+            $tmdb_settings
+        );
+
+        add_settings_field(
             'moviehelper_tmdb_api_key',
-            $tmdb_description,
+            esc_html__('', 'movie-helper'),
             [$this, 'tmdbSettingsInputApiKey'],
             'moviehelper_tmdb_settings',
             'moviehelper_tmdb_section',
             $tmdb_settings
         );
 
-        add_settings_field(
-            'moviehelper_tmdb_filter_adult',
-            '',
-            [$this, 'tmdbSettingsFilterAdult'],
-            'moviehelper_tmdb_settings',
-            'moviehelper_tmdb_section',
-            $tmdb_settings
-        );
-    }
 
-    /**
-     * Print the input id to insert the TMDB api key
-     *
-     * @author Dario Curvino <@dudo>
-     * @since 1.0.0
-     *
-     * @param $tmdb_settings
-     */
-    public function tmdbSettingsInputApiKey($tmdb_settings) {
-        if(!isset($tmdb_settings['api_key'])) {
-            $key = '';
-        } else {
-            $key = $tmdb_settings['api_key'];
-        }
-        ?>
-        <strong><?php esc_html_e('Api Key', 'movie-helper') ?></strong>
-        <p></p>
-            <input
-                type="text"
-                id="moviehelper-tmdb-apikey"
-                name="moviehelper_tmdb_settings[api_key]"
-                value="<?php echo esc_attr($key) ?>"
-            > <br />
-            <label for="moviehelper-tmdb-apikey" class="moviehelper-element-description">
-                <?php echo wp_kses_post(sprintf(
-                        __('Click %shere%s to create your API key. A (free) account on TMDB is needed.', 'movie-helper'),
-                    '<a href="https://developers.themoviedb.org/3/getting-started/introduction">', '</a>')); ?>
-            </label>
-        <?php
     }
-
 
     public function tmdbSettingsFilterAdult($tmdb_settings) {
         if(!isset($tmdb_settings['include_adult'])) {
@@ -186,7 +156,7 @@ class movieHelperSettings {
         <p></p>
         <div class="moviehelper-onoffswitch-big">
             <input type="checkbox" name="moviehelper_tmdb_settings[include_adult]"
-                <?php if ($include_adult === true){ echo 'checked="checked'; }?>
+                <?php if ($include_adult === true){ echo 'checked="checked"'; }?>
                    value="true"
                    class="moviehelper-onoffswitch-checkbox"
                    id="moviehelper-include-adult"
@@ -195,9 +165,60 @@ class movieHelperSettings {
                 <span class="moviehelper-onoffswitch-inner"></span>
                 <span class="moviehelper-onoffswitch-switch"></span>
             </label>
-        </div> <br />
+        </div>
         <?php
     }
+
+    /**
+     * Print the input id to insert the TMDB api key
+     *
+     * @author Dario Curvino <@dudo>
+     * @since 1.0.0
+     *
+     * @param $tmdb_settings
+     */
+    public function tmdbSettingsInputApiKey($tmdb_settings) {
+        if(!isset($tmdb_settings['api_key']) ||
+            $tmdb_settings['api_key'] === '' ||
+            $tmdb_settings['api_key'] === MOVIEHELPER_TMDB_APIKEY
+        ) {
+            $restore_button = '';
+            $key = MOVIEHELPER_TMDB_APIKEY;
+        } else {
+            $restore_button = '<input type="button"
+                     id="moviehelper-default-apikey"
+                     class="button"
+                     value="'.esc_attr__('Restore default Api Key', 'movie-helper').'" />' ;
+            $key = $tmdb_settings['api_key'];
+        }
+
+        ?>
+        <strong><?php esc_html_e('Api Key', 'movie-helper') ?></strong>
+        <p></p>
+            <input
+                type="text"
+                id="moviehelper-tmdb-apikey"
+                name="moviehelper_tmdb_settings[api_key]"
+                value="<?php echo esc_attr($key) ?>"
+            >
+            <?php
+                $allowed_html = [
+                    'input' => [
+                        'type'  => [],
+                        'id'    => [],
+                        'class' => [],
+                        'value' => []
+                    ]
+                ];
+                echo wp_kses($restore_button, $allowed_html)
+            ?>
+            <br />
+            <label for="moviehelper-tmdb-apikey" class="moviehelper-element-description">
+                <?php esc_html_e('Change this value only if you want to use your own TMDB API Key.', 'movie-helper') ?>
+            </label>
+        <?php
+    }
+
 
     /***
      * @author Dario Curvino <@dudo>
@@ -319,7 +340,7 @@ class movieHelperSettings {
         $text .= '<div>YASR - Yet Another Stars Rating</div>';
         $text .= '</a>';
         $text .= '<p>';
-        $text .= __('Boost the way people interact with your site with an easy WordPress stars rating system! 
+        $text .= __('Boost the way people interact with your site with an easy WordPress stars rating system!
         With Schema.org rich snippets YASR will improve your SEO!', 'movie-helper');
 
         return $text;
@@ -339,12 +360,12 @@ class movieHelperSettings {
         $text .= '<div>Comments Not Replied To</div>';
         $text .= '</a>';
         $text .= '<p>';
-        $text .= __('"Comments Not Replied To" introduces a new area in the administrative dashboard that allows you to 
+        $text .= __('"Comments Not Replied To" introduces a new area in the administrative dashboard that allows you to
         see what comments to which you - as the site author - have not yet replied.', 'movie-helper');
         $text .= '</p>';
         $text .= '</div>';
 
         return $text;
     }
-    
+
 }
