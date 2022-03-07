@@ -3,8 +3,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: movie, tv show, tmdb, movie database, tv links
 Requires at least: 5.0
 Contributors: Dudo
-Tested up to: 5.8.1
-Stable tag: 1.0.2
+Tested up to: 5.9.1
+Stable tag: 1.1.0
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

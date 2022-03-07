@@ -70,7 +70,7 @@ class movieHelper {
 
         //admin absolute path
         define('MOVIEHELPER_ABSOLUTE_PATH_ADMIN', MOVIEHELPER_ABSOLUTE_PATH . '/admin');
-        
+
         //admin relative path
         define('MOVIEHELPER_RELATIVE_PATH_ADMIN', MOVIEHELPER_RELATIVE_PATH . '/admin');
 
@@ -87,6 +87,9 @@ class movieHelper {
 
         //version installed
         define('MOVIEHELPER_VERSION_INSTALLED', $this->versionInstalled());
+
+        //default api key
+        define('MOVIEHELPER_TMDB_APIKEY', 'd4c4f18bb357c68018b409f7f00ab072');
 
     }
 
@@ -159,7 +162,11 @@ class movieHelper {
      */
     private function install($network_wide) {
         //default settings
-        //$this->defaultSettings();
+        $default_data = [
+            'api_key'       => MOVIEHELPER_TMDB_APIKEY,
+            'include_adult' => false
+        ];
+        update_option('moviehelper_tmdb_settings', $default_data);
     }
 
     /**
@@ -202,7 +209,6 @@ class movieHelper {
 
         //enqueue inline scripts
         $this->enqueueInlineScripts($hook);
-
     }
 
     /**
@@ -221,7 +227,6 @@ class movieHelper {
                 'moviehelpercss', MOVIEHELPER_CSS_DIR . 'admin.css', false, MOVIEHELPER_VERSION_NUM
             );
         }
-
     }
 
     /**
@@ -251,6 +256,17 @@ class movieHelper {
             );
 
         }
+
+        if($hook === 'settings_page_moviehelper_settings_page') {
+            wp_enqueue_script(
+                'themoviedb_settings',
+                MOVIEHELPER_JS_DIR . 'settings.js',
+                '',
+                MOVIEHELPER_VERSION_NUM,
+                true
+            );
+        }
+
     }
 
     /**
