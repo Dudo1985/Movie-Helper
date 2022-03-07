@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
 } // Exit if accessed directly
 
 if(is_admin()) {
-    define('MOVIEHELPER_VERSION_NUM', '1.0.2');
+    define('MOVIEHELPER_VERSION_NUM', '1.1.0');
 
     require 'admin/movieHelper.php';
 

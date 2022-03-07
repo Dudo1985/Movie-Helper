@@ -13,21 +13,10 @@ Movie Helper allows you to easily add links to movie and tv shows, just by searc
 == Description ==
 I run a site that talks about movies and TV series. Every month, very long lists of news from Netflix, Amazon Prime, Disney +, etc. are published.
 To make the list more interesting, a link to IMDB is added to each entry. A very slow and tedious procedure!
-Hence the idea of creating Movie Helper! With Movie Helper you can simply search for the title you need,
-click on the cover and it will automatically be inserted in the post!
+Hence the idea of creating Movie Helper! With Movie Helper you can simply search for the title you need, click on the cover and it will automatically be inserted in the post!
 No shortcodes needed, no custom posts, just click and go!
 
 == How To use ==
-== First, you need an Api Key! ==
-Movie Helper works with The Movie Database (TMDB), a community built movie and TV database.
-In order to access their database, you need [a free account first](https://www.themoviedb.org/signup).
-When you're logged in, follow these steps:
-
-1 Click on your avatar or initials in the main navigation
-2 Click the "Settings" link
-3 Click the "API" link in the left sidebar
-4 Click "Create" or "click here" on the API page
-5 Copy the generated key, and paste it in Settings -> Movie Helper Settings -> Api Key
 
 == Editing content ==
 Below the editor, you will find a new box where you will able to search for a movie or a tv show.
@@ -56,6 +45,9 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 3. Movie Helper settings
 
 == Changelog ==
+
+= 1.1.0 =
+* TWEAKED: TMDB Api key provided with the plugin.
 
 = 1.0.2 =
 * Added "comment not replied to" logo
