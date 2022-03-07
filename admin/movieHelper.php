@@ -166,6 +166,7 @@ class movieHelper {
             'api_key'       => MOVIEHELPER_TMDB_APIKEY,
             'include_adult' => false
         ];
+        delete_transient('tmdb_api_key');
         update_option('moviehelper_tmdb_settings', $default_data);
     }
 

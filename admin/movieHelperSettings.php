@@ -145,8 +145,13 @@ class movieHelperSettings {
 
     }
 
+    /**
+     * @author Dario Curvino <@dudo>
+     * @since 1.1.0
+     * @param $tmdb_settings
+     */
     public function tmdbSettingsFilterAdult($tmdb_settings) {
-        if(!isset($tmdb_settings['include_adult'])) {
+        if(!isset($tmdb_settings['include_adult']) || $tmdb_settings['include_adult'] === false) {
             $include_adult = false;
         } else {
             $include_adult = true;
@@ -202,6 +207,7 @@ class movieHelperSettings {
                 value="<?php echo esc_attr($key) ?>"
             >
             <?php
+                //allow html input tag or button will not be printed
                 $allowed_html = [
                     'input' => [
                         'type'  => [],
