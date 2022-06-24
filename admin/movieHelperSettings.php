@@ -150,18 +150,13 @@ class movieHelperSettings {
      * @since 1.1.0
      * @param $tmdb_settings
      */
-    public function tmdbSettingsFilterAdult($tmdb_settings) {
-        if(!isset($tmdb_settings['include_adult']) || $tmdb_settings['include_adult'] === false) {
-            $include_adult = false;
-        } else {
-            $include_adult = true;
-        }
+    public function tmdbSettingsFilterAdult() {
         ?>
         <strong><?php esc_html_e('Include adult content?', 'movie-helper') ?></strong>
         <p></p>
         <div class="moviehelper-onoffswitch-big">
             <input type="checkbox" name="moviehelper_tmdb_settings[include_adult]"
-                <?php if ($include_adult === true){ echo 'checked="checked"'; }?>
+                <?php if (MOVIEHELPER_TMDB_ADULT === true){ echo 'checked="checked"'; }?>
                    value="true"
                    class="moviehelper-onoffswitch-checkbox"
                    id="moviehelper-include-adult"

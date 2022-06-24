@@ -287,7 +287,7 @@ class movieHelper {
                     'lang'               => str_replace('_', '-', get_locale()),
                     'tmdb' => array(
                         'api_key'       => MOVIEHELPER_TMDB_API_KEY,
-                        'include_adult' => MOVIEHELPER_FILTER_ADULT,
+                        'include_adult' => MOVIEHELPER_TMDB_ADULT,
                     )
                 )
             );
@@ -327,7 +327,7 @@ class movieHelper {
             $api_key = false;
         }
 
-        if(isset($tmdb_options['include_adult'])) {
+        if(isset($tmdb_options['include_adult']) && ((bool)$tmdb_options['include_adult']) === true) {
             $include_adult = true;
         } else {
             $include_adult = false;
@@ -335,7 +335,7 @@ class movieHelper {
 
         //define api key
         define('MOVIEHELPER_TMDB_API_KEY', $api_key);
-        define('MOVIEHELPER_FILTER_ADULT', $include_adult);
+        define('MOVIEHELPER_TMDB_ADULT', $include_adult);
 
     }
 
