@@ -4,7 +4,7 @@
 **Tags:** movie, tv show, tmdb, movie database, tv links \
 **Requires at least:** 5.0 \
 **Contributors:** Dudo \
-**Tested up to:** 5.9.1 \
+**Tested up to:** 6.0 \
 **Stable tag:** 1.1.0 \
 **License:** GPL2 \
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
