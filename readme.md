@@ -1,13 +1,13 @@
 # Movie Helper
 
-**Donate link:** https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AXE284FYMNWDC \
-**Tags:** movie, tv show, tmdb, movie database, tv links \
-**Requires at least:** 5.0 \
-**Contributors:** Dudo \
-**Tested up to:** 6.0 \
-**Stable tag:** 1.1.0 \
-**License:** GPL2 \
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: https://www.paypal.com/paypalme/dariocurvino   
+Tags: movie, tv show, tmdb, movie database, tv links    
+Requires at least: 5.0  
+Contributors: Dudo  
+Tested up to: 6.0.3     
+Stable tag: 1.1.0   
+License: GPL2   
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Movie Helper allows you to easily add links to movie and tv shows, just by searching them while you're writing your content. Search, click, done!
 
@@ -31,6 +31,8 @@ to insert the list to the post.
 
 [youtube https://www.youtube.com/watch?v=QOdCeV7-TR4]
 
+Follow development on [GitHub](https://github.com/Dudo1985/Comments-Not-Replied-To)
+
 ## Installation
 
 1. Navigate to Dashboard -> Plugins -> Add New and search for Movie Helper
@@ -38,7 +40,7 @@ to insert the list to the post.
 
 ## Frequently Asked Questions
 
-### Does it works only with TMDB?
+### Does it work only with TMDB?
 
 Yes, at least for now. But it is designed to support more services.
 Feel free to write into the support forum to propose new ones.
