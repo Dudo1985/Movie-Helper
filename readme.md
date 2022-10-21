@@ -63,7 +63,7 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 
 ![Movie Helper settings](https://s.w.org/plugins/movie-helper/screenshot-3.png)
 
-== Changelog ==
+## Changelog
 
 = 1.1.1 =
 * FIXED: Wrong default value
