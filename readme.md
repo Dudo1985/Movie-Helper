@@ -63,6 +63,20 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 
 ![Movie Helper settings](https://s.w.org/plugins/movie-helper/screenshot-3.png)
 
+== Changelog ==
+
+= 1.1.1 =
+* FIXED: Wrong default value
+
+= 1.1.0 =
+* TWEAKED: TMDB Api key provided with the plugin.
+
+= 1.0.2 =
+* Added "comment not replied to" logo
+
+= 1.0.1 =
+* Added YASR logo and created Italian translation
+
 ## Additional Info
 
 Movie Helper works with the [The Movie DB (javascript library)](https://github.com/cavestri/themoviedb-javascript-library/)
