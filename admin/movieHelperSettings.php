@@ -32,7 +32,9 @@ class movieHelperSettings {
         //hook to admin menu to add the link to the setting page
         add_action('admin_menu', [$this, 'addOptionsPageLink']);
 
-        add_action('admin_init', [$this, 'tmdbSection']); //This is for general options
+        add_action('admin_init', [$this, 'mhSection']); //This is for general options
+
+        add_action('admin_init', [$this, 'tmdbSection']); //This is for TMDB settings
 
         define('MOVIEHELPER_SAVE_All_SETTINGS_TEXT', __('Save all settings', 'movie-helper'));
     }
@@ -107,6 +109,42 @@ class movieHelperSettings {
      * @author Dario Curvino <@dudo>
      * @since 1.0.0
      */
+    public function mhSection() {
+        register_setting(
+            'moviehelper_settings_group', // A settings group name. Must exist prior to the register_setting call.
+            // This must match the group name in settings_fields()
+            'moviehelper_settings', //The name of an option to sanitize and save.
+            [$this, 'sanitizeTMDBSettings']
+        );
+
+        $mh_settings    = get_option('moviehelper_settings');
+
+        add_settings_section(
+            'moviehelper_section',
+            '',
+            '',
+            'moviehelper_tmdb_settings'
+        );
+
+
+        add_settings_field(
+            'moviehelper_customize_links',
+            esc_html__('Customize links', 'movie-helper'),
+            [$this, 'customizeLinks'],
+            'moviehelper_tmdb_settings',
+            'moviehelper_section',
+            $mh_settings
+        );
+
+
+    }
+
+    /**
+     * Register setttings section and field for TMDB
+     *
+     * @author Dario Curvino <@dudo>
+     * @since 1.0.0
+     */
     public function tmdbSection() {
         register_setting(
             'moviehelper_settings_group', // A settings group name. Must exist prior to the register_setting call.
@@ -146,9 +184,29 @@ class movieHelperSettings {
     }
 
     /**
+     * Print the input fields to customize links
+     *
      * @author Dario Curvino <@dudo>
-     * @since 1.1.0
-     * @param $tmdb_settings
+     * @since  1.1.2
+     * @param $mh_settings
+     */
+    public function customizeLinks ($mh_settings) {
+        //@todo fix custom links if not defined
+        ?>
+
+        <input
+            type="text"
+            id="moviehelper-custom-links"
+            name="moviehelper_settings[custom_links]"
+            value="<?php echo esc_attr($mh_settings['custom_links']) ?>"
+        >
+
+        <?php
+    }
+
+    /**
+     * @author Dario Curvino <@dudo>
+     * @since  1.1.0
      */
     public function tmdbSettingsFilterAdult() {
         ?>
