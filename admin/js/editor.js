@@ -177,8 +177,10 @@ function movieHelperReturnOverview(overview) {
 }
 
 /**
+ * Insert link into editor
+ *
  * @param event
- * @param item
+ * @param item  | a href dom element, taken from movie card
  */
 function movieHelperInsertLink(event, item) {
     let linkAttribute = document.querySelector('input[name="moviehelper-after-link"]:checked').value;
