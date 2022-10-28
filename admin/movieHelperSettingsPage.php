@@ -32,6 +32,8 @@ class movieHelperSettingsPage {
         //hook to admin menu to add the link to the setting page
         add_action('admin_menu', [$this, 'addOptionsPageLink']);
 
+        require MOVIEHELPER_ABSOLUTE_PATH_ADMIN . '/movie-helper-settings-misc.php';
+
         add_action('admin_init', [$this, 'mhSection']); //This is for general options
 
         add_action('admin_init', [$this, 'tmdbSection']); //This is for TMDB settings
@@ -127,7 +129,7 @@ class movieHelperSettingsPage {
 
         add_settings_field(
             'moviehelper_customize_links',
-            esc_html__('Customize links', 'movie-helper'),
+            movie_helper_customize_links_description(),
             [$this, 'customizeLinks'],
             'moviehelper_tmdb_settings',
             'moviehelper_section'
@@ -184,14 +186,25 @@ class movieHelperSettingsPage {
      */
     public function customizeLinks () {
         ?>
-        <div>
-            <label for="moviehelper-custom-links"></label><input
+        <div class="moviehelper-general-settings">
+            <input
                 type="text"
                 id="moviehelper-custom-links"
                 name="moviehelper_settings[txt_after_links]"
                 value="<?php echo esc_attr(MOVIEHELPER_TEXT_AFTER_LINKS['txt_after_links']) ?>"
                 placeholder="<?php echo esc_html__('%year% (%country%) ')?>"
             >
+            <label for="moviehelper-custom-links">
+            </label>
+            <p></p>
+            <div class="moviehelper-element-description" style="margin-top: 10px">
+                <span><strong>Allowed Variables:</strong></span>
+                <p>
+                    <strong>%year%</strong> - Display the year <br />
+                    <strong>%country%</strong> - Display the country
+                </p>
+            </div>
+
         </div>
 
         <?php

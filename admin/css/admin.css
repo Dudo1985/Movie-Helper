@@ -130,6 +130,17 @@
     border-right: 1px solid #ddd;
 }
 
+.moviehelper-settings-description {
+    color: #3c434a;
+    font-weight: 400;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.moviehelper-general-settings input[type=text]:focus::placeholder {
+    color:transparent;
+}
+
 .moviehelper-element-description {
     color: #737272;
     margin-top: 5px;
