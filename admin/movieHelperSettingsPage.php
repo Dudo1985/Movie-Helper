@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) {
  * @since 1.0.0
  * Class movieHelperSettings
  */
-class movieHelperSettings {
+class movieHelperSettingsPage {
     public function init() {
         //hook to admin menu to add the link to the setting page
         add_action('admin_menu', [$this, 'addOptionsPageLink']);
@@ -168,7 +168,6 @@ class movieHelperSettings {
             [$this, 'tmdbSettingsFilterAdult'],
             'moviehelper_tmdb_settings',
             'moviehelper_tmdb_section',
-            $tmdb_settings
         );
 
         add_settings_field(

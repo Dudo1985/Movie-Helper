@@ -26,13 +26,14 @@ class movieHelper {
     public function init() {
         $this->defineConstants();
 
-        $this->getTMDBOptions();
-
         //Run this only on plugin activation (doesn't work on update)
         register_activation_hook(MOVIEHELPER_ABSOLUTE_PATH.'/movie-helper.php', [$this, 'onActivation']);
 
         //load all classes
         $this->autoloadMHClasses();
+
+        //do define for TMDB Options
+        $this->defineTMDBOptions();
 
         //load settingsPage Class
         $this->settingsPage();
@@ -100,7 +101,7 @@ class movieHelper {
      * @since 1.0.0
      */
     public function autoloadMHClasses() {
-        //AutoLoad MH Classes, only when a object is created
+        //AutoLoad MH Classes, only when an object is created
         spl_autoload_register(static function ($class) {
             /**
              * If the class being requested does not start with 'movie' prefix,
@@ -313,29 +314,17 @@ class movieHelper {
     }
 
     /**
-     * Get settings for TMDB
+     * Define settings for TMDB
      *
      * @author Dario Curvino <@dudo>
      * @since 1.0.0
      */
-    public function getTMDBOptions () {
-        $tmdb_options = get_option('moviehelper_tmdb_settings');
-
-        if(isset($tmdb_options['api_key'])) {
-            $api_key = $tmdb_options['api_key'];
-        } else {
-            $api_key = false;
-        }
-
-        if(isset($tmdb_options['include_adult']) && ((bool)$tmdb_options['include_adult']) === true) {
-            $include_adult = true;
-        } else {
-            $include_adult = false;
-        }
+    public function defineTMDBOptions () {
+        $tmdb_options =  movieHelperGetSettings::tmdb();
 
         //define api key
-        define('MOVIEHELPER_TMDB_API_KEY', $api_key);
-        define('MOVIEHELPER_TMDB_ADULT', $include_adult);
+        define('MOVIEHELPER_TMDB_API_KEY', $tmdb_options['api_key']);
+        define('MOVIEHELPER_TMDB_ADULT', $tmdb_options['include_adult']);
 
     }
 
@@ -400,7 +389,7 @@ class movieHelper {
      * @since 1.0.0
      */
     public function settingsPage() {
-        $mhSettings = new movieHelperSettings();
+        $mhSettings = new movieHelperSettingsPage();
         $mhSettings->init();
     }
 
