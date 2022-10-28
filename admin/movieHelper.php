@@ -90,7 +90,7 @@ class movieHelper {
         define('MOVIEHELPER_VERSION_INSTALLED', $this->versionInstalled());
 
         //default api key
-        define('MOVIEHELPER_TMDB_APIKEY', 'd4c4f18bb357c68018b409f7f00ab072');
+        define('MOVIEHELPER_TMDB_DEFAULT_APIKEY', 'd4c4f18bb357c68018b409f7f00ab072');
 
     }
 
@@ -164,7 +164,7 @@ class movieHelper {
     private function install($network_wide) {
         //default settings
         $default_data = [
-            'api_key'       => MOVIEHELPER_TMDB_APIKEY,
+            'api_key'       => MOVIEHELPER_TMDB_DEFAULT_APIKEY,
             'include_adult' => false
         ];
         delete_transient('tmdb_api_key');
@@ -287,7 +287,7 @@ class movieHelper {
                     'img_dir'            => MOVIEHELPER_IMG_DIR,
                     'lang'               => str_replace('_', '-', get_locale()),
                     'tmdb' => array(
-                        'api_key'       => MOVIEHELPER_TMDB_API_KEY,
+                        'api_key'       => MOVIEHELPER_TMDB_CUSTOM_APIKEY,
                         'include_adult' => MOVIEHELPER_TMDB_ADULT,
                     )
                 )
@@ -322,8 +322,8 @@ class movieHelper {
     public function defineTMDBOptions () {
         $tmdb_options =  movieHelperGetSettings::tmdb();
 
-        //define api key
-        define('MOVIEHELPER_TMDB_API_KEY', $tmdb_options['api_key']);
+        //define tmdb settings
+        define('MOVIEHELPER_TMDB_CUSTOM_APIKEY', $tmdb_options['api_key']);
         define('MOVIEHELPER_TMDB_ADULT', $tmdb_options['include_adult']);
 
     }

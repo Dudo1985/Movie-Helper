@@ -25,7 +25,7 @@ $valid_api = false;
 $tmdb_transient = movieHelper::getTMDBApiKeyTransient();
 
 if($tmdb_transient === false) {
-    $valid_api = movieHelper::validateTMDBApiKey(MOVIEHELPER_TMDB_API_KEY);
+    $valid_api = movieHelper::validateTMDBApiKey(MOVIEHELPER_TMDB_CUSTOM_APIKEY);
 } else {
     if(isset($tmdb_transient['error']) && $tmdb_transient['error'] === false) {
         $valid_api = true;

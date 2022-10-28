@@ -153,8 +153,6 @@ class movieHelperSettingsPage {
             [$this, 'sanitizeTMDBSettings']
         );
 
-        $tmdb_settings    = get_option('moviehelper_tmdb_settings');
-
         add_settings_section(
             'moviehelper_tmdb_section',
             '',
@@ -167,7 +165,7 @@ class movieHelperSettingsPage {
             esc_html__('The Movie Database (TMDB) Settings', 'movie-helper'),
             [$this, 'tmdbSettingsFilterAdult'],
             'moviehelper_tmdb_settings',
-            'moviehelper_tmdb_section',
+            'moviehelper_tmdb_section'
         );
 
         add_settings_field(
@@ -176,7 +174,6 @@ class movieHelperSettingsPage {
             [$this, 'tmdbSettingsInputApiKey'],
             'moviehelper_tmdb_settings',
             'moviehelper_tmdb_section',
-            $tmdb_settings
         );
 
 
@@ -232,21 +229,17 @@ class movieHelperSettingsPage {
      * @author Dario Curvino <@dudo>
      * @since 1.0.0
      *
-     * @param $tmdb_settings
      */
-    public function tmdbSettingsInputApiKey($tmdb_settings) {
-        if(!isset($tmdb_settings['api_key']) ||
-            $tmdb_settings['api_key'] === '' ||
-            $tmdb_settings['api_key'] === MOVIEHELPER_TMDB_APIKEY
-        ) {
+    public function tmdbSettingsInputApiKey() {
+        if(MOVIEHELPER_TMDB_CUSTOM_APIKEY === false || MOVIEHELPER_TMDB_CUSTOM_APIKEY === MOVIEHELPER_TMDB_DEFAULT_APIKEY) {
             $restore_button = '';
-            $key = MOVIEHELPER_TMDB_APIKEY;
+            $key = MOVIEHELPER_TMDB_DEFAULT_APIKEY;
         } else {
             $restore_button = '<input type="button"
                      id="moviehelper-default-apikey"
                      class="button"
                      value="'.esc_attr__('Restore default Api Key', 'movie-helper').'" />' ;
-            $key = $tmdb_settings['api_key'];
+            $key = MOVIEHELPER_TMDB_CUSTOM_APIKEY;
         }
 
         ?>
