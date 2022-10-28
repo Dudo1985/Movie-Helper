@@ -31,7 +31,7 @@ to insert the list to the post.
 
 [youtube https://www.youtube.com/watch?v=QOdCeV7-TR4]
 
-Follow development on [GitHub](https://github.com/Dudo1985/Comments-Not-Replied-To)
+Follow development on [GitHub](https://github.com/Dudo1985/Movie-Helper)
 
 ## Installation
 
