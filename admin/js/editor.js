@@ -201,7 +201,7 @@ function movieHelperInsertLink(event, item) {
  */
 function movieHelperClassicEditor (link) {
     //#content is the editor in text mode.
-    //if, in page load, viasual mode is active, and then we switch from visual to text,
+    //if, in page load, visual mode is active, and then we switch from visual to text,
     // tinyMCE.activeEditor still return the object
     //So, I add do this always
     let textEditor = document.getElementById('content');

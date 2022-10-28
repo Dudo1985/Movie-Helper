@@ -9,8 +9,26 @@
  */
 class movieHelperGetSettings {
 
+    /***
+     * Return a cleaned array of MH options
+     *
+     * @author Dario Curvino <@dudo>
+     * @since 1.1.2
+     * @return array|mixed
+     */
+    public static function mh () {
+        $mh_settings    = get_option('moviehelper_settings');
+
+        //If apy_key is not set, initialize it on false
+        if(!isset($mh_settings['txt_after_links'])) {
+            $mh_settings['txt_after_links'] = false;
+        }
+
+        return $mh_settings;
+    }
+
     /**
-     * Return a cleanded array of tmdb options
+     * Return a cleaned array of tmdb options
      *
      * @author Dario Curvino <@dudo>
      * @since  1.1.2

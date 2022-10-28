@@ -117,8 +117,6 @@ class movieHelperSettingsPage {
             [$this, 'sanitizeTMDBSettings']
         );
 
-        $mh_settings    = get_option('moviehelper_settings');
-
         add_settings_section(
             'moviehelper_section',
             '',
@@ -132,8 +130,7 @@ class movieHelperSettingsPage {
             esc_html__('Customize links', 'movie-helper'),
             [$this, 'customizeLinks'],
             'moviehelper_tmdb_settings',
-            'moviehelper_section',
-            $mh_settings
+            'moviehelper_section'
         );
 
 
@@ -173,7 +170,7 @@ class movieHelperSettingsPage {
             esc_html__('', 'movie-helper'),
             [$this, 'tmdbSettingsInputApiKey'],
             'moviehelper_tmdb_settings',
-            'moviehelper_tmdb_section',
+            'moviehelper_tmdb_section'
         );
 
 
@@ -184,18 +181,18 @@ class movieHelperSettingsPage {
      *
      * @author Dario Curvino <@dudo>
      * @since  1.1.2
-     * @param $mh_settings
      */
-    public function customizeLinks ($mh_settings) {
-        //@todo fix custom links if not defined
+    public function customizeLinks () {
         ?>
-
-        <input
-            type="text"
-            id="moviehelper-custom-links"
-            name="moviehelper_settings[custom_links]"
-            value="<?php echo esc_attr($mh_settings['custom_links']) ?>"
-        >
+        <div>
+            <label for="moviehelper-custom-links"></label><input
+                type="text"
+                id="moviehelper-custom-links"
+                name="moviehelper_settings[txt_after_links]"
+                value="<?php echo esc_attr(MOVIEHELPER_TEXT_AFTER_LINKS['txt_after_links']) ?>"
+                placeholder="<?php echo esc_html__('%year% (%country%) ')?>"
+            >
+        </div>
 
         <?php
     }

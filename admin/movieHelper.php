@@ -32,7 +32,10 @@ class movieHelper {
         //load all classes
         $this->autoloadMHClasses();
 
-        //do define for TMDB Options
+        //do defines for MH Options
+        $this->defineMHOptions();
+
+        //do defines for TMDB Options
         $this->defineTMDBOptions();
 
         //load settingsPage Class
@@ -311,6 +314,20 @@ class movieHelper {
      */
     public function translate() {
         load_plugin_textdomain('movie-helper', false, MOVIEHELPER_LANG_DIR);
+    }
+
+    /**
+     * Define MH settings
+     *
+     * @author Dario Curvino <@dudo>
+     * @since 1.0.0
+     */
+    public function defineMHOptions () {
+        $mh_options =  movieHelperGetSettings::mh();
+
+        //define mh settings
+        define('MOVIEHELPER_TEXT_AFTER_LINKS', $mh_options);
+
     }
 
     /**
