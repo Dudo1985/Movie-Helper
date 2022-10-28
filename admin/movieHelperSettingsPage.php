@@ -91,7 +91,7 @@ class movieHelperSettingsPage {
                 <form action="options.php" method="post" id="moviehelper-settings-form">
                     <?php
                         settings_fields('moviehelper_settings_group');
-                        do_settings_sections('moviehelper_tmdb_settings');
+                        do_settings_sections('moviehelper_settings');
                         submit_button(MOVIEHELPER_SAVE_All_SETTINGS_TEXT);
                     ?>
                 </form>
@@ -123,7 +123,7 @@ class movieHelperSettingsPage {
             'moviehelper_section',
             '',
             '',
-            'moviehelper_tmdb_settings'
+            'moviehelper_settings'
         );
 
 
@@ -131,7 +131,7 @@ class movieHelperSettingsPage {
             'moviehelper_customize_links',
             movie_helper_customize_links_description(),
             [$this, 'customizeLinks'],
-            'moviehelper_tmdb_settings',
+            'moviehelper_settings',
             'moviehelper_section'
         );
 
@@ -156,14 +156,14 @@ class movieHelperSettingsPage {
             'moviehelper_tmdb_section',
             '',
             '',
-            'moviehelper_tmdb_settings'
+            'moviehelper_settings'
         );
 
         add_settings_field(
             'moviehelper_tmdb_filter_adult',
             esc_html__('The Movie Database (TMDB) Settings', 'movie-helper'),
             [$this, 'tmdbSettingsFilterAdult'],
-            'moviehelper_tmdb_settings',
+            'moviehelper_settings',
             'moviehelper_tmdb_section'
         );
 
@@ -171,7 +171,7 @@ class movieHelperSettingsPage {
             'moviehelper_tmdb_api_key',
             esc_html__('', 'movie-helper'),
             [$this, 'tmdbSettingsInputApiKey'],
-            'moviehelper_tmdb_settings',
+            'moviehelper_settings',
             'moviehelper_tmdb_section'
         );
 
