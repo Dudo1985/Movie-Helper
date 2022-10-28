@@ -183,6 +183,8 @@ function movieHelperReturnOverview(overview) {
  * @param item  | a href dom element, taken from movie card
  */
 function movieHelperInsertLink(event, item) {
+    //@todo manage text after link here
+
     let linkAttribute = document.querySelector('input[name="moviehelper-after-link"]:checked').value;
     let href          = item.dataset.moviehelperLink;
     let name          = item.dataset.moviehelperName;
