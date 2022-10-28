@@ -46,17 +46,20 @@ function movieHelperSuccessGetMulti(data) {
             if (typeof result !== 'undefined') {
                 let name;
                 let originalName;
+                let date;
 
                 if(result.media_type === 'tv' || result.media_type === 'movie') {
                     if (result.media_type === 'tv') {
                         name          = result.name;
-                        originalName  = result.original_name
+                        originalName  = result.original_name;
+                        date          = result.first_air_date;
                     } else {
-                        name = result.title;
-                        originalName = result.original_title
+                        name         = result.title;
+                        originalName = result.original_title;
+                        date         = result.release_date;
                     }
                     movieDiv += movieHelperLinksReturnCard(name, originalName, result.media_type, result.id,
-                        result.poster_path, result.overview);
+                        result.poster_path, result.overview, date);
                 }
             }
         });
@@ -87,9 +90,10 @@ function movieHelperSuccessGetMulti(data) {
  * @param id
  * @param poster
  * @param overview
+ * @param date
  * @return {string}
  */
-function movieHelperLinksReturnCard (name, originalName, mediaType, id, poster, overview) {
+function movieHelperLinksReturnCard (name, originalName, mediaType, id, poster, overview, date) {
     if(name !== 'undefined' && typeof name !== 'undefined') {
 
         let originalNameDiv = movieHelperReturnOriginalNameDiv (name, originalName)
@@ -99,7 +103,11 @@ function movieHelperLinksReturnCard (name, originalName, mediaType, id, poster, 
 
         return `<div class="moviehelper-cards">
                     <div class="moviehelper-card-item">
-                        <a href="#" class="moviehelper-insert-link" data-moviehelper-link="${link}" data-moviehelper-name="${name}">
+                        <a href="#" class="moviehelper-insert-link" 
+                            data-moviehelper-link="${link}" 
+                            data-moviehelper-name="${name}"
+                            data-moviehelper-date="${date}"
+                        >
                             <div class="moviehelper-card-image">
                                 <img src="${poster}" 
                                      title="${__('Insert link', 'movie-helper')}"
