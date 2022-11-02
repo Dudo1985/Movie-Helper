@@ -201,7 +201,8 @@ class movieHelperSettingsPage {
                 <span><strong>Allowed Variables:</strong></span>
                 <p>
                     <strong>%year%</strong> - Display the year <br />
-                    <strong>%country%</strong> - Display the country
+                    <strong>%vote_average%</strong> - Display the vote average <br />
+                    <strong>%vote_count%</strong> - Display the vote count
                 </p>
             </div>
 
