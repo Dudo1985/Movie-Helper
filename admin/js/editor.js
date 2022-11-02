@@ -183,11 +183,12 @@ function movieHelperReturnOverview(overview) {
  * @param item  | a href dom element, taken from movie card
  */
 function movieHelperInsertLink(event, item) {
-    //@todo manage text after link here
 
     let linkAttribute = document.querySelector('input[name="moviehelper-after-link"]:checked').value;
     let href          = item.dataset.moviehelperLink;
     let name          = item.dataset.moviehelperName;
+    let year          = movieHelperGetYear(item.dataset.moviehelperDate);
+    let customText    = movieHelperReplaceCustomText(year);
     let afterLink     = '';
 
     let spanStyle = 'display: block';
@@ -196,7 +197,7 @@ function movieHelperInsertLink(event, item) {
         afterLink = '&nbsp;';
     }
 
-    let link = `<span style="${spanStyle}"><a href="${href}">${name}</a>${afterLink}</span>`;
+    let link = `<span style="${spanStyle}"><a href="${href}">${name}</a>&nbsp; ${customText} ${afterLink}</span>`;
 
     if(movieHelperCommonData.guten_page === true) {
         blockMovieList.innerHTML += link;
@@ -204,7 +205,6 @@ function movieHelperInsertLink(event, item) {
     } else {
         movieHelperClassicEditor(link);
     }
-
 
 }
 
@@ -275,4 +275,36 @@ function movieHelperInsertBlock(event) {
     let newBlock = wp.blocks.createBlock("core/paragraph", { content: blockMovieList.innerHTML});
     let inserted = wp.data.dispatch("core/block-editor" ).insertBlocks( newBlock );
     blockMovieList.innerHTML = '';
+}
+
+/**
+ * Return the Year from a date, ora the string N/A if date is not set
+ *
+ * @param date {string}
+ * @returns {string|number}
+ */
+function movieHelperGetYear(date) {
+
+    //also check for undefined, as a STRING
+    if(date && date !== 'undefined') {
+        return new Date(date).getFullYear();
+    }
+    return 'N/A';
+}
+
+/**
+ * Search and replace for supported vars and return a string with values
+ *
+ * @param date
+ * @returns {any}
+ */
+function movieHelperReplaceCustomText (date) {
+    let text    = JSON.parse(movieHelperCommonData.custom_text_link);
+    let result  = text;
+
+    if(text) {
+        result = text.replaceAll('%year%', date);
+    }
+
+    return result;
 }

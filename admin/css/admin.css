@@ -141,6 +141,10 @@
     color:transparent;
 }
 
+.moviehelper-general-settings input[type=text]::placeholder {
+    color:#818891;
+}
+
 .moviehelper-element-description {
     color: #737272;
     margin-top: 5px;

@@ -289,6 +289,7 @@ class movieHelper {
                     'guten_page'         => self::isGutenPage(),
                     'img_dir'            => MOVIEHELPER_IMG_DIR,
                     'lang'               => str_replace('_', '-', get_locale()),
+                    'custom_text_link'   => json_encode(wp_kses_post(MOVIEHELPER_TEXT_AFTER_LINKS['txt_after_links'])),
                     'tmdb' => array(
                         'api_key'       => MOVIEHELPER_TMDB_CUSTOM_APIKEY,
                         'include_adult' => MOVIEHELPER_TMDB_ADULT,
