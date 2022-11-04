@@ -47,6 +47,8 @@ function movieHelperSuccessGetMulti(data) {
                 let name;
                 let originalName;
                 let date;
+                let voteAverage;
+                let voteCount;
 
                 if(result.media_type === 'tv' || result.media_type === 'movie') {
                     if (result.media_type === 'tv') {
@@ -59,7 +61,7 @@ function movieHelperSuccessGetMulti(data) {
                         date         = result.release_date;
                     }
                     movieDiv += movieHelperLinksReturnCard(name, originalName, result.media_type, result.id,
-                        result.poster_path, result.overview, date);
+                        result.poster_path, result.overview, date, result.vote_average, result.vote_count);
                 }
             }
         });
@@ -91,9 +93,11 @@ function movieHelperSuccessGetMulti(data) {
  * @param poster
  * @param overview
  * @param date
+ * @param voteAverage
+ * @param voteCount
  * @return {string}
  */
-function movieHelperLinksReturnCard (name, originalName, mediaType, id, poster, overview, date) {
+function movieHelperLinksReturnCard (name, originalName, mediaType, id, poster, overview, date, voteAverage, voteCount) {
     if(name !== 'undefined' && typeof name !== 'undefined') {
 
         let originalNameDiv = movieHelperReturnOriginalNameDiv (name, originalName)
@@ -107,6 +111,8 @@ function movieHelperLinksReturnCard (name, originalName, mediaType, id, poster, 
                             data-moviehelper-link="${link}" 
                             data-moviehelper-name="${name}"
                             data-moviehelper-date="${date}"
+                            data-moviehelper-average="${voteAverage}"
+                            data-moviehelper-count="${voteCount}"
                         >
                             <div class="moviehelper-card-image">
                                 <img src="${poster}" 
@@ -187,8 +193,10 @@ function movieHelperInsertLink(event, item) {
     let linkAttribute = document.querySelector('input[name="moviehelper-after-link"]:checked').value;
     let href          = item.dataset.moviehelperLink;
     let name          = item.dataset.moviehelperName;
+    let voteAverage   = item.dataset.moviehelperAverage;
+    let voteCount     = item.dataset.moviehelperCount;
     let year          = movieHelperGetYear(item.dataset.moviehelperDate);
-    let customText    = movieHelperReplaceCustomText(year);
+    let customText    = movieHelperReplaceCustomText(year, voteAverage, voteCount);
     let afterLink     = '';
 
     let spanStyle = 'display: block';
@@ -296,14 +304,19 @@ function movieHelperGetYear(date) {
  * Search and replace for supported vars and return a string with values
  *
  * @param date
+ * @param voteAverage
+ * @param voteCount
  * @returns {any}
  */
-function movieHelperReplaceCustomText (date) {
+function movieHelperReplaceCustomText(date, voteAverage, voteCount) {
+
     let text    = JSON.parse(movieHelperCommonData.custom_text_link);
     let result  = text;
 
     if(text) {
         result = text.replaceAll('%year%', date);
+        result = result.replaceAll('%vote_average%', voteAverage);
+        result = result.replaceAll('%vote_count%', voteCount);
     }
 
     return result;
