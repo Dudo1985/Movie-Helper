@@ -196,6 +196,11 @@ function movieHelperInsertLink(event, item) {
     let year          = movieHelperGetYear(item.dataset.moviehelperDate);
     let customText    = movieHelperReplaceCustomText(year, voteAverage, voteCount);
     let afterLink     = '';
+    let targetBlank   = '';
+
+    if(JSON.parse(movieHelperCommonData.tmdb.target_blank) === true) {
+        targetBlank = 'target="_blank"';
+    }
 
     let spanStyle = 'display: block';
     if(linkAttribute === 'space') {
@@ -203,7 +208,7 @@ function movieHelperInsertLink(event, item) {
         afterLink = '&nbsp;';
     }
 
-    let link = `<span style="${spanStyle}"><a href="${href}">${name}</a>&nbsp; ${customText} ${afterLink}</span>`;
+    let link = `<span style="${spanStyle}"><a href="${href}" ${targetBlank}>${name}</a>&nbsp; ${customText} ${afterLink}</span>`;
 
     if(movieHelperCommonData.guten_page === true) {
         blockMovieList.innerHTML += link;
