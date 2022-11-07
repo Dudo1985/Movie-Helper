@@ -47,8 +47,6 @@ function movieHelperSuccessGetMulti(data) {
                 let name;
                 let originalName;
                 let date;
-                let voteAverage;
-                let voteCount;
 
                 if(result.media_type === 'tv' || result.media_type === 'movie') {
                     if (result.media_type === 'tv') {
