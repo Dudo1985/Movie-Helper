@@ -217,19 +217,40 @@ class movieHelperSettingsPage {
      */
     public function tmdbSettingsFilterAdult() {
         ?>
-        <strong><?php esc_html_e('Include adult content?', 'movie-helper') ?></strong>
-        <p></p>
-        <div class="moviehelper-onoffswitch-big">
-            <input type="checkbox" name="moviehelper_tmdb_settings[include_adult]"
-                <?php if (MOVIEHELPER_TMDB_ADULT === true){ echo 'checked="checked"'; }?>
-                   value="true"
-                   class="moviehelper-onoffswitch-checkbox"
-                   id="moviehelper-include-adult"
-            />
-            <label class="moviehelper-onoffswitch-label" for="moviehelper-include-adult">
-                <span class="moviehelper-onoffswitch-inner"></span>
-                <span class="moviehelper-onoffswitch-switch"></span>
-            </label>
+
+        <div>
+            <strong><?php esc_html_e('Open link in new tab?', 'movie-helper') ?></strong>
+            <p></p>
+            <div class="moviehelper-onoffswitch-big">
+                <input type="checkbox" name="moviehelper_tmdb_settings[target_blank]"
+                    <?php if (MOVIEHELPER_TMDB_TARGET_BLANK === true){ echo 'checked="checked"'; }?>
+                       value="true"
+                       class="moviehelper-onoffswitch-checkbox"
+                       id="moviehelper-target-blank"
+                />
+                <label class="moviehelper-onoffswitch-label" for="moviehelper-target-blank">
+                    <span class="moviehelper-onoffswitch-inner"></span>
+                    <span class="moviehelper-onoffswitch-switch"></span>
+                </label>
+            </div>
+        </div>
+
+        <p>&nbsp;</p>
+        <div>
+            <strong><?php esc_html_e('Include adult content?', 'movie-helper') ?></strong>
+            <p></p>
+            <div class="moviehelper-onoffswitch-big">
+                <input type="checkbox" name="moviehelper_tmdb_settings[include_adult]"
+                    <?php if (MOVIEHELPER_TMDB_ADULT === true){ echo 'checked="checked"'; }?>
+                       value="true"
+                       class="moviehelper-onoffswitch-checkbox"
+                       id="moviehelper-include-adult"
+                />
+                <label class="moviehelper-onoffswitch-label" for="moviehelper-include-adult">
+                    <span class="moviehelper-onoffswitch-inner"></span>
+                    <span class="moviehelper-onoffswitch-switch"></span>
+                </label>
+            </div>
         </div>
         <?php
     }

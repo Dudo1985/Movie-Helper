@@ -342,7 +342,8 @@ class movieHelper {
 
         //define tmdb settings
         define('MOVIEHELPER_TMDB_CUSTOM_APIKEY', $tmdb_options['api_key']);
-        define('MOVIEHELPER_TMDB_ADULT', $tmdb_options['include_adult']);
+        define('MOVIEHELPER_TMDB_TARGET_BLANK',  $tmdb_options['target_blank']);
+        define('MOVIEHELPER_TMDB_ADULT',         $tmdb_options['include_adult']);
 
     }
 
