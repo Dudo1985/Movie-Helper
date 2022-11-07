@@ -65,6 +65,10 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 
 ## Changelog
 
+= 1.2.0 =
+* NEW FEATURE: it is now possible to add, after the link, the release date, vote average and vote count
+* NEW FEATURE: it is now possible to open link in new window
+
 = 1.1.1 =
 * FIXED: Wrong default value
 
