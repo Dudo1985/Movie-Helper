@@ -5,7 +5,7 @@ Tags: movie, tv show, tmdb, movie database, tv links
 Requires at least: 5.0  
 Contributors: Dudo  
 Tested up to: 6.1  
-Stable tag: 1.2.0    
+Stable tag: 1.2.1   
 License: GPL2   
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,8 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 ![Movie Helper settings](https://s.w.org/plugins/movie-helper/screenshot-3.png)
 
 ## Changelog
+
+* FIXED: fixed link to review page
 
 = 1.2.0 =
 * NEW FEATURE: it is now possible to add, after the link, the release date, vote average and vote count

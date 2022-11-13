@@ -380,7 +380,7 @@ class movieHelperSettingsPage {
                     </div>';
         $text .= '<p>';
         $text .= __('Please rate Movie Helper 5 stars on', 'movie-helper');
-        $text .= ' <a href="https://wordpress.org/support/view/plugin-reviews/movie-helper">
+        $text .= ' <a href="https://wordpress.org/support/plugin/yet-another-movie/reviews/">
         WordPress.org.</a><br />';
         $text .= __(' It will require just 1 min but it\'s a HUGE help for me. Thank you.', 'movie-helper');
         $text .= '<br /><br />';
