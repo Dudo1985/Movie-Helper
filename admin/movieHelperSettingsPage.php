@@ -350,8 +350,8 @@ class movieHelperSettingsPage {
         $div = "<div class='moviehelper-donatedivdx' id='moviehelper-buy-cofee'>";
         $text  = '<div class="moviehelper-donate-title">' . __('Buy me a coffee!', 'movie-helper') .'</div>';
         $text .= '<div class="moviehelper-donate-content">';
-        $text .= '<a href="https://www.buymeacoffee.com/dariocurvino" target="_blank">
-                    <img src="'.MOVIEHELPER_IMG_DIR.'/buymecofyel.png" alt="buymeacofee">
+        $text .= '<a href="https://www.paypal.com/donate/?hosted_button_id=SVTAVUF62QZ4W" target="_blank">
+                    <img src="'.MOVIEHELPER_IMG_DIR.'/button_paypal.png" alt="paypal" width="200">
                   </a>';
         $text .= '<p>';
         $text .= $buymecofeetext;
