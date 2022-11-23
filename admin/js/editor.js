@@ -208,7 +208,9 @@ function movieHelperInsertLink(event, item) {
         afterLink = '&nbsp;';
     }
 
-    let link = `<span style="${spanStyle}"><a href="${href}" ${targetBlank}>${name}</a>&nbsp; ${customText} ${afterLink}</span>`;
+    let link = `<span style="${spanStyle}">
+                    <a href="${href}" title="${name}" ${targetBlank} >${name}</a>
+                    &nbsp; ${customText} ${afterLink}</span>`;
 
     if(movieHelperCommonData.guten_page === true) {
         blockMovieList.innerHTML += link;
