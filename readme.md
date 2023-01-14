@@ -65,10 +65,10 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 
 ## Changelog
 
-* FIXED: fixed link to review page
 
 = 1.2.1 =
 * FIXED: PHP 8.1 compatibility
+* FIXED: fixed link to review page
 
 = 1.2.0 =
 * NEW FEATURE: it is now possible to add, after the link, the release date, vote average and vote count
