@@ -191,7 +191,7 @@ class movieHelperSettingsPage {
                 type="text"
                 id="moviehelper-custom-links"
                 name="moviehelper_settings[txt_after_links]"
-                value="<?php echo esc_attr(MOVIEHELPER_TEXT_AFTER_LINKS['txt_after_links']) ?>"
+                value="<?php echo esc_attr(MOVIEHELPER_TEXT_AFTER_LINKS) ?>"
                 placeholder="<?php echo esc_html__('(%vote_average%), %year% ')?>"
             >
             <label for="moviehelper-custom-links">
