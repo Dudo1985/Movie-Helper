@@ -333,6 +333,7 @@ class movieHelperSettingsPage {
      * @since  1.0.0
      */
     private function rightPanel () {
+        add_thickbox();
         $this->buyACoffee();
         $this->alsoLike();
         $this->askRating();
@@ -437,15 +438,26 @@ class movieHelperSettingsPage {
      * @return string
      */
     private function cnrt() {
-        $text  = '<div class="moviehelper-donate-content">';
-        $text .= '<a href="https://wordpress.org/plugins/comments-not-replied-to/">';
-        $text .= '<img src="'.MOVIEHELPER_IMG_DIR.'/cnrt.png" alt="cnrt" width="110">';
-        $text .= '<div>Comments Not Replied To</div>';
-        $text .= '</a>';
-        $text .= '<p>';
-        $text .= __('"Comments Not Replied To" introduces a new area in the administrative dashboard that allows you to
-        see what comments to which you - as the site author - have not yet replied.', 'movie-helper');
-        $text .= '</p>';
+        $url = add_query_arg(
+            array(
+                'tab'       => 'plugin-information',
+                'plugin'    => 'comments-not-replied-to',
+                'TB_iframe' => 'true',
+                'width'     => '772',
+                'height'    => '670'
+            ),
+            network_admin_url( 'plugin-install.php' )
+        );
+
+        $text  = '<h4>Comments Not Replied To</h4>';
+        $text .= '<div style="margin-top: 15px;">';
+        $text .= esc_html__('"Comments Not Replied To" introduces a new area in the administrative dashboard that allows you to
+        see what comments to which you - as the site author - have not yet replied.', 'yet-another-stars-rating');
+        $text .= '</div>';
+        $text .= '<div style="margin-top: 15px;"> 
+                <a href="'. esc_url( $url ).'" 
+                   class="install-now button thickbox open-plugin-details-modal"
+                   target="_blank">'. __( 'Install', 'yet-another-stars-rating' ).'</a>';
         $text .= '</div>';
 
         return $text;
