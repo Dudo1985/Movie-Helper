@@ -419,13 +419,25 @@ class movieHelperSettingsPage {
      * @return string
      */
     private function yasr() {
-        $text = '<a href="https://wordpress.org/plugins/yet-another-stars-rating/">';
-        $text .= '<img src="'.MOVIEHELPER_IMG_DIR.'/yasr.png" alt="yasr" width="110">';
-        $text .= '<div>YASR - Yet Another Stars Rating</div>';
-        $text .= '</a>';
-        $text .= '<p>';
-        $text .= __('Boost the way people interact with your site with an easy WordPress stars rating system!
+        $url = add_query_arg(
+            array(
+                'tab'       => 'plugin-information',
+                'plugin'    => 'yet-another-stars-rating',
+                'TB_iframe' => 'true',
+                'width'     => '772',
+                'height'    => '670'
+            ),
+            network_admin_url( 'plugin-install.php' )
+        );
+        $text  = '<h4>Yet Another Stars Rating</h4>';
+        $text .= '<div style="margin-top: 15px;">';
+        $text .= esc_html__('Boost the way people interact with your site with an easy WordPress stars rating system!
         With Schema.org rich snippets YASR will improve your SEO!', 'movie-helper');
+        $text .= '</div>';
+        $text .= '<div style="margin-top: 15px;"> 
+                    <a href="'. esc_url( $url ).'" class="install-now button thickbox open-plugin-details-modal" target="_blank">'
+                    . __( 'Install', 'movie-helper' ).'</a>';
+        $text .= '</div>';
 
         return $text;
     }
@@ -452,12 +464,11 @@ class movieHelperSettingsPage {
         $text  = '<h4>Comments Not Replied To</h4>';
         $text .= '<div style="margin-top: 15px;">';
         $text .= esc_html__('"Comments Not Replied To" introduces a new area in the administrative dashboard that allows you to
-        see what comments to which you - as the site author - have not yet replied.', 'yet-another-stars-rating');
+        see what comments to which you - as the site author - have not yet replied.', 'movie-helper');
         $text .= '</div>';
         $text .= '<div style="margin-top: 15px;"> 
-                <a href="'. esc_url( $url ).'" 
-                   class="install-now button thickbox open-plugin-details-modal"
-                   target="_blank">'. __( 'Install', 'yet-another-stars-rating' ).'</a>';
+                  <a href="'. esc_url( $url ).'" class="install-now button thickbox open-plugin-details-modal"
+                        target="_blank">'. __( 'Install', 'yet-another-stars-rating' ).'</a>';
         $text .= '</div>';
 
         return $text;
