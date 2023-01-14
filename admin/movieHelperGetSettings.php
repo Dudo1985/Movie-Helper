@@ -20,7 +20,7 @@ class movieHelperGetSettings {
         $mh_settings    = get_option('moviehelper_settings');
 
         //If apy_key is not set, initialize it on false
-        if(!isset($mh_settings['txt_after_links'])) {
+        if(is_array($mh_settings) && !isset($mh_settings['txt_after_links'])) {
             $mh_settings['txt_after_links'] = false;
         }
 
