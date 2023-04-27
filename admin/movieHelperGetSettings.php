@@ -42,19 +42,22 @@ class movieHelperGetSettings {
     public static function tmdb () {
         $tmdb_options = get_option('moviehelper_tmdb_settings');
 
-        //get option to open in new window
-        if(isset($tmdb_options['target_blank']) && ((bool)$tmdb_options['target_blank']) === true) {
-            $tmdb_options['target_blank'] = true;
-        } else {
-            $tmdb_options['target_blank'] = false;
+        // set default value for target_blank to false
+        $target_blank  = false;
+        $include_adult = false;
+
+        // check if target_blank is set to true in $tmdb_options
+        if(isset($tmdb_options['target_blank']) && (bool) $tmdb_options['target_blank'] === true) {
+            $target_blank = true;
         }
 
         //get option for adult content
-        if(isset($tmdb_options['include_adult']) && ((bool)$tmdb_options['include_adult']) === true) {
-            $tmdb_options['include_adult'] = true;
-        } else {
-            $tmdb_options['include_adult'] = false;
+        if(isset($tmdb_options['include_adult']) && (bool)$tmdb_options['include_adult'] === true) {
+            $include_adult = true;
         }
+
+        $tmdb_options['target_blank']  = $target_blank;
+        $tmdb_options['include_adult'] = $include_adult;
 
         //If apy_key is not set, initialize it on false
         if(!isset($tmdb_options['api_key'])) {
@@ -62,6 +65,5 @@ class movieHelperGetSettings {
         }
 
         return $tmdb_options;
-
     }
 }
