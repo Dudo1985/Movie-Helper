@@ -40,7 +40,7 @@ class movieHelperGetSettings {
      * @return array|mixed
      */
     public static function tmdb () {
-        $tmdb_options = get_option('moviehelper_tmdb_settings');
+        $tmdb_options = get_option('moviehelper_tmdb_settings', array());
 
         // set default value for target_blank to false
         $target_blank  = false;
