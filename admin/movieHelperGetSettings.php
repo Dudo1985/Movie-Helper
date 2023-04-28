@@ -17,16 +17,10 @@ class movieHelperGetSettings {
      * @return array|mixed
      */
     public static function mh () {
-        $mh_settings    = get_option('moviehelper_settings');
+        $mh_settings    = get_option('moviehelper_settings', array());
 
-        if(!is_array($mh_settings) || (is_array($mh_settings) && !isset($mh_settings['txt_after_links']))) {
-            if(!is_array($mh_settings)) {
-                $mh_settings = array();
-            }
-
-            if(!isset($mh_settings['txt_after_links'])) {
-                $mh_settings['txt_after_links'] = false;
-            }
+        if(!isset($mh_settings['txt_after_links'])) {
+            $mh_settings['txt_after_links'] = false;
         }
 
         return $mh_settings;
