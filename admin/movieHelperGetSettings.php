@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Collection of static methods to get MH Settings
  *
  * @author Dario Curvino <@dudo>
  * @since 1.1.2
@@ -16,7 +15,7 @@ class movieHelperGetSettings {
      * @since 1.1.2
      * @return array|mixed
      */
-    public static function mh () {
+    public function mh () {
         $mh_settings    = get_option('moviehelper_settings', array());
 
         if(!isset($mh_settings['txt_after_links'])) {
@@ -33,25 +32,11 @@ class movieHelperGetSettings {
      * @since  1.1.2
      * @return array|mixed
      */
-    public static function tmdb () {
+    public function tmdb () {
         $tmdb_options = get_option('moviehelper_tmdb_settings', array());
 
-        // set default value for target_blank to false
-        $target_blank  = false;
-        $include_adult = false;
-
-        // check if target_blank is set to true in $tmdb_options
-        if(isset($tmdb_options['target_blank']) && (bool) $tmdb_options['target_blank'] === true) {
-            $target_blank = true;
-        }
-
-        //get option for adult content
-        if(isset($tmdb_options['include_adult']) && (bool)$tmdb_options['include_adult'] === true) {
-            $include_adult = true;
-        }
-
-        $tmdb_options['target_blank']  = $target_blank;
-        $tmdb_options['include_adult'] = $include_adult;
+        $tmdb_options['target_blank']  = $this->tmdbGetTarget($tmdb_options);
+        $tmdb_options['include_adult'] = $this->includeAdult($tmdb_options);
 
         //If apy_key is not set, initialize it on false
         if(!isset($tmdb_options['api_key'])) {
@@ -59,5 +44,49 @@ class movieHelperGetSettings {
         }
 
         return $tmdb_options;
+    }
+
+    /**
+     * Return target blank option
+     *
+     * @author Dario Curvino <@dudo>
+     *
+     * @since 1.2.2
+     *
+     * @param $options array  The array with all tmdb options
+     *
+     * @return bool
+     */
+    private function tmdbGetTarget($options) {
+        $target_blank  = false;
+
+        // check if target_blank is set to true in $tmdb_options
+        if(isset($options['target_blank']) && (bool) $options['target_blank'] === true) {
+            $target_blank = true;
+        }
+
+        return $target_blank;
+    }
+
+    /**
+     * Return include adult option
+     *
+     * @author Dario Curvino <@dudo>
+     *
+     * @since 1.2.2
+     *
+     * @param $options array  The array with all tmdb options
+     *
+     * @return bool
+     */
+    private function includeAdult($options) {
+        $include_adult = false;
+
+        //get option for adult content
+        if(isset($options['include_adult']) && (bool)$options['include_adult'] === true) {
+            $include_adult = true;
+        }
+
+        return $include_adult;
     }
 }

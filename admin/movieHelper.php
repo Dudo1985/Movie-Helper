@@ -23,6 +23,13 @@ if (!defined('ABSPATH')) {
 } // Exit if accessed directly
 
 class movieHelper {
+
+    /**
+     * Object instanceof class movieHelperGetSettings
+     * @var \movieHelperGetSettings
+     */
+    public $settings;
+
     public function init() {
         $this->defineConstants();
 
@@ -31,6 +38,9 @@ class movieHelper {
 
         //load all classes
         $this->autoloadMHClasses();
+
+        //initialize the class
+        $this->settings = new movieHelperGetSettings();
 
         //do defines for MH Options
         $this->defineMHOptions();
@@ -51,7 +61,6 @@ class movieHelper {
 
         //once plugins are loaded, update version
         add_action('plugins_loaded', [$this, 'updateVersion']);
-
     }
 
     /**
@@ -186,21 +195,6 @@ class movieHelper {
         }
     }
 
-    /**
-     * Insert default settings
-     *
-     * @author Dario Curvino <@dudo>
-     * @since  1.0.0
-     */
-    public function defaultSettings() {
-        $settings = get_option('moviehelper_settings');
-
-        if(!$settings) {
-            //default settings here
-            add_option('moviehelper_settings', $settings); //Write here the default value if there is not $settings
-        }
-    }
-
     //$hook contain the current page in the admin side
     public function enqueueScripts($hook) {
         wp_register_script( 'moviehelper-global-data', '', [], '', true );
@@ -325,7 +319,7 @@ class movieHelper {
      * @since 1.0.0
      */
     public function defineMHOptions () {
-        $mh_options =  movieHelperGetSettings::mh();
+        $mh_options = $this->settings->mh();
 
         //define mh settings
         define('MOVIEHELPER_TEXT_AFTER_LINKS', $mh_options['txt_after_links']);
@@ -338,13 +332,12 @@ class movieHelper {
      * @since 1.0.0
      */
     public function defineTMDBOptions () {
-        $tmdb_options =  movieHelperGetSettings::tmdb();
+        $tmdb_options =  $this->settings->tmdb();
 
         //define tmdb settings
         define('MOVIEHELPER_TMDB_TARGET_BLANK',  $tmdb_options['target_blank']);
         define('MOVIEHELPER_TMDB_ADULT',         $tmdb_options['include_adult']);
         define('MOVIEHELPER_TMDB_CUSTOM_APIKEY', $tmdb_options['api_key']);
-
     }
 
     /**

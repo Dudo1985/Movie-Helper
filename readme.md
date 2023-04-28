@@ -18,6 +18,9 @@ To make the list more interesting, a link to IMDB is added to each entry. A very
 Hence the idea of creating Movie Helper! With Movie Helper you can simply search for the title you need, click on the cover and it will automatically be inserted in the post!
 No shortcodes needed, no custom posts, just click and go!
 
+## Development
+https://github.com/Dudo1985/Movie-Helper
+
 ## How To use
 
 ## Editing content
