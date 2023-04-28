@@ -30,6 +30,11 @@ class movieHelper {
      */
     public $settings;
 
+    /**
+     * @var \movieHelperScripts
+     */
+    public $scripts;
+
     public function init() {
         $this->defineConstants();
 
@@ -39,8 +44,13 @@ class movieHelper {
         //load all classes
         $this->autoloadMHClasses();
 
-        //initialize the class
+        //initialize the classes
+
+        //class used to get settings
         $this->settings = new movieHelperGetSettings();
+
+        //class used to hooks js and css scripts
+        $this->scripts = new movieHelperScripts();
 
         //do defines for MH Options
         $this->defineMHOptions();
@@ -57,7 +67,8 @@ class movieHelper {
         //Init translations
         add_action('init', [$this, 'translate']);
 
-        add_action('admin_enqueue_scripts', [$this, 'enqueueScripts']);
+        //enqueue scripts in 'admin_enqueue_scripts' hook
+        $this->scripts->init();
 
         //once plugins are loaded, update version
         add_action('plugins_loaded', [$this, 'updateVersion']);
@@ -192,115 +203,6 @@ class movieHelper {
     public function updateVersion(){
         if (MOVIEHELPER_VERSION_NUM !== MOVIEHELPER_VERSION_INSTALLED) {
             update_option('moviehelper-version', MOVIEHELPER_VERSION_NUM);
-        }
-    }
-
-    //$hook contain the current page in the admin side
-    public function enqueueScripts($hook) {
-        wp_register_script( 'moviehelper-global-data', '', [], '', true );
-        wp_enqueue_script( 'moviehelper-global-data' );
-
-        //enqueue css
-        $this->enqueueCSS($hook);
-
-        //enqueue js
-        $this->enqueueJS($hook);
-
-        //enqueue inline scripts
-        $this->enqueueInlineScripts($hook);
-    }
-
-    /**
-     * Enqueue css
-     *
-     * @author Dario Curvino <@dudo>
-     * @since 1.0.0
-     * @param $hook
-     */
-    public function enqueueCSS($hook) {
-        if ($hook === 'post.php'
-            || $hook === 'post-new.php'
-            || $hook === MOVIEHELPER_SETTINGS_PAGE) {
-
-            wp_enqueue_style(
-                'moviehelpercss', MOVIEHELPER_CSS_DIR . 'admin.css', false, MOVIEHELPER_VERSION_NUM
-            );
-        }
-    }
-
-    /**
-     * Enqueue js
-     *
-     * @author Dario Curvino <@dudo>
-     * @since 2.0.0
-     * @param $hook
-     */
-    public function enqueueJS($hook) {
-        if ($hook === 'post.php' || $hook === 'post-new.php') {
-
-            wp_enqueue_script(
-                'themoviedb',
-                MOVIEHELPER_JS_DIR . 'wrappers/themoviedb.js',
-                '',
-                MOVIEHELPER_VERSION_NUM,
-                true
-            );
-
-            wp_enqueue_script(
-                'moviehelper-editor',
-                MOVIEHELPER_JS_DIR . 'editor.js',
-                array('themoviedb', 'wp-i18n'),
-                MOVIEHELPER_VERSION_NUM,
-                true
-            );
-
-        }
-
-        if($hook === 'settings_page_moviehelper_settings_page') {
-            wp_enqueue_script(
-                'themoviedb_settings',
-                MOVIEHELPER_JS_DIR . 'settings.js',
-                '',
-                MOVIEHELPER_VERSION_NUM,
-                true
-            );
-        }
-
-    }
-
-    /**
-     * Enqueue inline scripts
-     *
-     * @author Dario Curvino <@dudo>
-     * @since 1.0.0
-     * @param $hook
-     */
-    public function enqueueInlineScripts($hook) {
-        if ($hook === 'post.php' || $hook === 'post-new.php') {
-
-            $mh_common_data = json_encode(
-                array(
-                    'guten_page'         => self::isGutenPage(),
-                    'img_dir'            => MOVIEHELPER_IMG_DIR,
-                    'lang'               => str_replace('_', '-', get_locale()),
-                    'custom_text_link'   => json_encode(wp_kses_post(MOVIEHELPER_TEXT_AFTER_LINKS)),
-                    'tmdb' => array(
-                        'target_blank'  => json_encode(MOVIEHELPER_TMDB_TARGET_BLANK),
-                        'include_adult' => MOVIEHELPER_TMDB_ADULT, //leave this as a string
-                        'api_key'       => MOVIEHELPER_TMDB_CUSTOM_APIKEY
-                    )
-                )
-            );
-
-            //check if wp_add_inline_script has already run before
-            if (!defined('MOVIEHELPER_GLOBAL_DATA_EXISTS')) {
-                wp_add_inline_script(
-                    'moviehelper-global-data', 'var movieHelperCommonData = ' . $mh_common_data, 'before'
-                );
-
-                //use a constant to be sure that moviehelper-global-data is not loaded twice
-                define('MOVIEHELPER_GLOBAL_DATA_EXISTS', true);
-            }
         }
     }
 
