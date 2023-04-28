@@ -169,7 +169,6 @@ class movieHelper {
      * @param $network_wide  //indicate if the plugin is network activated
      */
     public function onActivation($network_wide) {
-
         //do action when plugin is installed for first time
         if(MOVIEHELPER_VERSION_INSTALLED === 0) {
             $this->install($network_wide);
