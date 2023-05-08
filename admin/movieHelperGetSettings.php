@@ -16,7 +16,7 @@ class movieHelperGetSettings {
      * @return array|mixed
      */
     public function mh () {
-        $mh_settings    = get_option('moviehelper_settings', array());
+        $mh_settings    = get_option('moviehelper_settings', []);
 
         if(!isset($mh_settings['txt_after_links'])) {
             $mh_settings['txt_after_links'] = false;
@@ -33,7 +33,7 @@ class movieHelperGetSettings {
      * @return array|mixed
      */
     public function tmdb () {
-        $tmdb_options = get_option('moviehelper_tmdb_settings', array());
+        $tmdb_options = get_option('moviehelper_tmdb_settings', []);
 
         $tmdb_options['target_blank']  = $this->tmdbGetTarget($tmdb_options);
         $tmdb_options['include_adult'] = $this->includeAdult($tmdb_options);

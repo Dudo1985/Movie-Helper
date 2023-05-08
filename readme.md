@@ -39,7 +39,7 @@ Follow development on [GitHub](https://github.com/Dudo1985/Movie-Helper)
 ## Installation
 
 1. Navigate to Dashboard -> Plugins -> Add New and search for Movie Helper
-2. Click on "Install Now" and than "Activate"
+2. Click on "Install Now" and then "Activate"
 
 ## Frequently Asked Questions
 

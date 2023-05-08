@@ -312,7 +312,7 @@ class movieHelperSettingsPage {
      */
     public function sanitizeTMDBSettings($options) {
         // Create our array for storing the validated options
-        $output = array();
+        $output = [];
 
         // Loop through each of the incoming options
         foreach($options as $key => $value ) {
@@ -420,13 +420,13 @@ class movieHelperSettingsPage {
      */
     private function yasr() {
         $url = add_query_arg(
-            array(
+            [
                 'tab'       => 'plugin-information',
                 'plugin'    => 'yet-another-stars-rating',
                 'TB_iframe' => 'true',
                 'width'     => '772',
                 'height'    => '670'
-            ),
+            ],
             network_admin_url( 'plugin-install.php' )
         );
         $text  = '<h4>Yet Another Stars Rating</h4>';
@@ -451,13 +451,13 @@ class movieHelperSettingsPage {
      */
     private function cnrt() {
         $url = add_query_arg(
-            array(
+            [
                 'tab'       => 'plugin-information',
                 'plugin'    => 'comments-not-replied-to',
                 'TB_iframe' => 'true',
                 'width'     => '772',
                 'height'    => '670'
-            ),
+            ],
             network_admin_url( 'plugin-install.php' )
         );
 

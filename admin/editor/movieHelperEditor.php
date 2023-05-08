@@ -37,7 +37,7 @@ class movieHelperEditor {
      */
     public function addMetaboxes () {
         //Default post type where display metabox
-        $post_types = array('post', 'page');
+        $post_types = ['post', 'page'];
 
         //get the custom post type
         $custom_post_types = movieHelper::getCustomPostTypes();

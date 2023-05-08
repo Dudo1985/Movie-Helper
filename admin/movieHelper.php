@@ -260,18 +260,18 @@ class movieHelper {
             } else {
                 $error = $valid_api;
             }
-            $transient_value = array(
+            $transient_value = [
                 'error'   => true,
                 'message' => $error
-            );
+            ];
             set_transient('tmdb_api_key', $transient_value, DAY_IN_SECONDS);
             return $error;
         }
 
-        $transient_value = array(
+        $transient_value = [
             'error'   => false,
             'api_key' => $api_key
-        );
+        ];
 
         set_transient('tmdb_api_key', $transient_value, DAY_IN_SECONDS);
         return true;
@@ -324,10 +324,10 @@ class movieHelper {
      * @return bool|string[]|WP_Post_Type[]
      */
     public static function getCustomPostTypes() {
-        $args = array(
+        $args = [
             'public'   => true,
             '_builtin' => false
-        );
+        ];
 
         $output   = 'names'; // names or objects, note names is the default
         $operator = 'and'; // 'and' or 'or'

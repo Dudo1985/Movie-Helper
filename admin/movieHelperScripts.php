@@ -64,7 +64,7 @@ class movieHelperScripts {
             wp_enqueue_script(
                 'moviehelper-editor',
                 MOVIEHELPER_JS_DIR . 'editor.js',
-                array('themoviedb', 'wp-i18n'),
+                ['themoviedb', 'wp-i18n'],
                 MOVIEHELPER_VERSION_NUM,
                 true
             );
@@ -94,17 +94,17 @@ class movieHelperScripts {
         if ($hook === 'post.php' || $hook === 'post-new.php') {
 
             $mh_common_data = json_encode(
-                array(
+                [
                     'guten_page'         => movieHelper::isGutenPage(),
                     'img_dir'            => MOVIEHELPER_IMG_DIR,
                     'lang'               => str_replace('_', '-', get_locale()),
                     'custom_text_link'   => json_encode(wp_kses_post(MOVIEHELPER_TEXT_AFTER_LINKS)),
-                    'tmdb' => array(
+                    'tmdb' => [
                         'target_blank'  => json_encode(MOVIEHELPER_TMDB_TARGET_BLANK),
                         'include_adult' => MOVIEHELPER_TMDB_ADULT, //leave this as a string
                         'api_key'       => MOVIEHELPER_TMDB_CUSTOM_APIKEY
-                    )
-                )
+                    ]
+                ]
             );
 
             //check if wp_add_inline_script has already run before
