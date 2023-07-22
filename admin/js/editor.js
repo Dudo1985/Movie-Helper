@@ -291,7 +291,7 @@ function movieHelperInsertBlock(event) {
 }
 
 /**
- * Return the Year from a date, ora the string N/A if date is not set
+ * Return the Year from a date, or the string N/A if date is not set
  *
  * @param date {string}
  * @returns {string|number}
