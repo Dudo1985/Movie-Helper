@@ -32,7 +32,7 @@ to insert the list to the post.
 
 ## Video Tutorial
 
-[youtube https://www.youtube.com/watch?v=QOdCeV7-TR4]
+[youtube https://www.youtube.com/watch?v=d3PI8si-fS4]
 
 Follow development on [GitHub](https://github.com/Dudo1985/Movie-Helper)
 
