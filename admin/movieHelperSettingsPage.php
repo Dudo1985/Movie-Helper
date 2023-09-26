@@ -126,7 +126,6 @@ class movieHelperSettingsPage {
             'moviehelper_settings'
         );
 
-
         add_settings_field(
             'moviehelper_customize_links',
             movie_helper_customize_links_description(),
@@ -206,6 +205,23 @@ class movieHelperSettingsPage {
                 </p>
             </div>
 
+            <div>
+                <strong><?php esc_html_e('Open link in new tab?', 'movie-helper') ?></strong>
+                <p></p>
+                <div class="moviehelper-onoffswitch-big">
+                    <input type="checkbox" name="moviehelper_settings[target_blank]"
+                        <?php if (MOVIEHELPER_TMDB_TARGET_BLANK === true){ echo 'checked="checked"'; }?>
+                           value="true"
+                           class="moviehelper-onoffswitch-checkbox"
+                           id="moviehelper-target-blank"
+                    />
+                    <label class="moviehelper-onoffswitch-label" for="moviehelper-target-blank">
+                        <span class="moviehelper-onoffswitch-inner"></span>
+                        <span class="moviehelper-onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+
         </div>
 
         <?php
@@ -217,25 +233,6 @@ class movieHelperSettingsPage {
      */
     public function tmdbSettingsFilterAdult() {
         ?>
-
-        <div>
-            <strong><?php esc_html_e('Open link in new tab?', 'movie-helper') ?></strong>
-            <p></p>
-            <div class="moviehelper-onoffswitch-big">
-                <input type="checkbox" name="moviehelper_tmdb_settings[target_blank]"
-                    <?php if (MOVIEHELPER_TMDB_TARGET_BLANK === true){ echo 'checked="checked"'; }?>
-                       value="true"
-                       class="moviehelper-onoffswitch-checkbox"
-                       id="moviehelper-target-blank"
-                />
-                <label class="moviehelper-onoffswitch-label" for="moviehelper-target-blank">
-                    <span class="moviehelper-onoffswitch-inner"></span>
-                    <span class="moviehelper-onoffswitch-switch"></span>
-                </label>
-            </div>
-        </div>
-
-        <p>&nbsp;</p>
         <div>
             <strong><?php esc_html_e('Include adult content?', 'movie-helper') ?></strong>
             <p></p>
@@ -402,11 +399,44 @@ class movieHelperSettingsPage {
         $text  = "<div class='moviehelper-donatedivdx' id='alsolike'>";
         $text .= '<div class="moviehelper-donate-title">' . __('You may also like...', 'movie-helper') .'</div>';
         $text .= '<div class="moviehelper-donate-content">';
+        $text .= $this->yasr();
+        $text .= '</p><hr />';
         $text .= $this->cnrt();
         $text .= '</div>'; //second div
         $text .= '</div>'; //first div
 
         echo wp_kses_post($text);
+    }
+
+    /**
+     * Yasr Box
+     *
+     * @author Dario Curvino <@dudo>
+     * @since 1.0.2
+     * @return string
+     */
+    private function yasr() {
+        $url = add_query_arg(
+            [
+                'tab'       => 'plugin-information',
+                'plugin'    => 'yet-another-stars-rating',
+                'TB_iframe' => 'true',
+                'width'     => '772',
+                'height'    => '670'
+            ],
+            network_admin_url( 'plugin-install.php' )
+        );
+        $text  = '<h4>Yet Another Stars Rating</h4>';
+        $text .= '<div style="margin-top: 15px;">';
+        $text .= esc_html__('Boost the way people interact with your site with an easy WordPress stars rating system!
+        With Schema.org rich snippets YASR will improve your SEO!', 'movie-helper');
+        $text .= '</div>';
+        $text .= '<div style="margin-top: 15px;"> 
+                    <a href="'. esc_url( $url ).'" class="install-now button thickbox open-plugin-details-modal" target="_blank">'
+                    . __( 'Install', 'movie-helper' ).'</a>';
+        $text .= '</div>';
+
+        return $text;
     }
 
     /**

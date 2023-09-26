@@ -223,7 +223,9 @@ class movieHelper {
         $mh_options = $this->settings->mh();
 
         //define mh settings
-        define('MOVIEHELPER_TEXT_AFTER_LINKS', $mh_options['txt_after_links']);
+        define('MOVIEHELPER_TEXT_AFTER_LINKS',  $mh_options['txt_after_links']);
+        define('MOVIEHELPER_TMDB_TARGET_BLANK', $mh_options['target_blank']);
+
     }
 
     /**
@@ -236,7 +238,6 @@ class movieHelper {
         $tmdb_options =  $this->settings->tmdb();
 
         //define tmdb settings
-        define('MOVIEHELPER_TMDB_TARGET_BLANK',  $tmdb_options['target_blank']);
         define('MOVIEHELPER_TMDB_ADULT',         $tmdb_options['include_adult']);
         define('MOVIEHELPER_TMDB_CUSTOM_APIKEY', $tmdb_options['api_key']);
     }
