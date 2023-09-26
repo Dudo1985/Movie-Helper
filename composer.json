@@ -11,5 +11,8 @@
   "require-dev": {
     "dudo1985/wpdocgen": "^2.0"
   },
-  "license": "GPL2"
+  "license": "GPL2",
+    "require": {
+        "ext-json": "*"
+    }
 }
