@@ -186,6 +186,12 @@ class movieHelperSettingsPage {
     public function customizeLinks () {
         ?>
         <div class="moviehelper-general-settings">
+            <label for="moviehelper-custom-links">
+                <strong>
+                    <?php echo esc_html__('Customize links', 'movie-helper') ?>
+                </strong>
+            </label>
+            <p></p>
             <input
                 type="text"
                 id="moviehelper-custom-links"
@@ -193,12 +199,10 @@ class movieHelperSettingsPage {
                 value="<?php echo esc_attr(MOVIEHELPER_TEXT_AFTER_LINKS) ?>"
                 placeholder="<?php echo esc_html__('(%vote_average%), %year% ')?>"
             >
-            <label for="moviehelper-custom-links">
-            </label>
             <p></p>
-            <div class="moviehelper-element-description" style="margin-top: 10px">
-                <span><strong>Allowed Variables:</strong></span>
-                <p>
+            <div class="moviehelper-element-description" style="margin-top: 10px;">
+                <span>Custom text to show after a link, allowed variables:</span>
+                <p style="margin-left: 10px;">
                     <strong>%year%</strong> - Display the year <br />
                     <strong>%vote_average%</strong> - Display the vote average <br />
                     <strong>%vote_count%</strong> - Display the vote count
@@ -399,44 +403,11 @@ class movieHelperSettingsPage {
         $text  = "<div class='moviehelper-donatedivdx' id='alsolike'>";
         $text .= '<div class="moviehelper-donate-title">' . __('You may also like...', 'movie-helper') .'</div>';
         $text .= '<div class="moviehelper-donate-content">';
-        $text .= $this->yasr();
-        $text .= '</p><hr />';
         $text .= $this->cnrt();
         $text .= '</div>'; //second div
         $text .= '</div>'; //first div
 
         echo wp_kses_post($text);
-    }
-
-    /**
-     * Yasr Box
-     *
-     * @author Dario Curvino <@dudo>
-     * @since 1.0.2
-     * @return string
-     */
-    private function yasr() {
-        $url = add_query_arg(
-            [
-                'tab'       => 'plugin-information',
-                'plugin'    => 'yet-another-stars-rating',
-                'TB_iframe' => 'true',
-                'width'     => '772',
-                'height'    => '670'
-            ],
-            network_admin_url( 'plugin-install.php' )
-        );
-        $text  = '<h4>Yet Another Stars Rating</h4>';
-        $text .= '<div style="margin-top: 15px;">';
-        $text .= esc_html__('Boost the way people interact with your site with an easy WordPress stars rating system!
-        With Schema.org rich snippets YASR will improve your SEO!', 'movie-helper');
-        $text .= '</div>';
-        $text .= '<div style="margin-top: 15px;"> 
-                    <a href="'. esc_url( $url ).'" class="install-now button thickbox open-plugin-details-modal" target="_blank">'
-                    . __( 'Install', 'movie-helper' ).'</a>';
-        $text .= '</div>';
-
-        return $text;
     }
 
     /**
