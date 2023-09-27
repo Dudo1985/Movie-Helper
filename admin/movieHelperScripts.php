@@ -99,8 +99,8 @@ class movieHelperScripts {
                     'img_dir'            => MOVIEHELPER_IMG_DIR,
                     'lang'               => str_replace('_', '-', get_locale()),
                     'custom_text_link'   => json_encode(wp_kses_post(MOVIEHELPER_TEXT_AFTER_LINKS)),
+                    'target_blank'  => json_encode(MOVIEHELPER_TARGET_BLANK),
                     'tmdb' => [
-                        'target_blank'  => json_encode(MOVIEHELPER_TMDB_TARGET_BLANK),
                         'include_adult' => MOVIEHELPER_TMDB_ADULT, //leave this as a string
                         'api_key'       => MOVIEHELPER_TMDB_CUSTOM_APIKEY
                     ]

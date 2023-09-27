@@ -224,7 +224,7 @@ class movieHelper {
 
         //define mh settings
         define('MOVIEHELPER_TEXT_AFTER_LINKS',  $mh_options['txt_after_links']);
-        define('MOVIEHELPER_TMDB_TARGET_BLANK', $mh_options['target_blank']);
+        define('MOVIEHELPER_TARGET_BLANK', $mh_options['target_blank']);
 
     }
 

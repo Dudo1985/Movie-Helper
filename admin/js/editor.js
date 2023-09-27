@@ -198,7 +198,7 @@ function movieHelperInsertLink(event, item) {
     let afterLink     = '';
     let targetBlank   = '';
 
-    if(JSON.parse(movieHelperCommonData.tmdb.target_blank) === true) {
+    if(JSON.parse(movieHelperCommonData.target_blank) === true) {
         targetBlank = 'target="_blank"';
     }
 

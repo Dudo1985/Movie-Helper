@@ -214,7 +214,7 @@ class movieHelperSettingsPage {
                 <p></p>
                 <div class="moviehelper-onoffswitch-big">
                     <input type="checkbox" name="moviehelper_settings[target_blank]"
-                        <?php if (MOVIEHELPER_TMDB_TARGET_BLANK === true){ echo 'checked="checked"'; }?>
+                        <?php if (MOVIEHELPER_TARGET_BLANK === true){ echo 'checked="checked"'; }?>
                            value="true"
                            class="moviehelper-onoffswitch-checkbox"
                            id="moviehelper-target-blank"
