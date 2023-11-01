@@ -22,11 +22,11 @@ if (!defined('ABSPATH')) {
 } // Exit if accessed directly
 
 function movie_helper_customize_links_description () {
-    $name        = esc_html__('Customize links', 'movie-helper');
+    $name        = esc_html__('Customize content', 'movie-helper');
 
     $div_desc     = '<div class="moviehelper-settings-description">';
-    $description  = esc_html__('Custom text to show after a link','movie-helper');
+    //$description  = esc_html__('Custom text to show after a link','movie-helper');
     $end_div      = '.</div>';
 
-    return $name . $div_desc . $description . $end_div;
+    return $name . $div_desc . $end_div;
 }

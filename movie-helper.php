@@ -4,7 +4,7 @@
  * Plugin Name: Movie Helper
  * Plugin URI: https://dariocurvino.it
  * Description: Movie Helper allows you to easily add links to movie and tv shows, just by searching them while you're writing your content. Search, click, done!
- * Version: 1.2.2
+ * Version: 1.2.3
  * Requires at least: 5.0
  * Requires PHP: 5.4
  * Author: Dario Curvino
@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
 } // Exit if accessed directly
 
 if(is_admin()) {
-    define('MOVIEHELPER_VERSION_NUM', '1.2.2');
+    define('MOVIEHELPER_VERSION_NUM', '1.2.3');
 
     require 'admin/movieHelper.php';
 
@@ -46,11 +46,11 @@ if(is_admin()) {
     $movie_helper->init();
 }
 
-//this add a link under the plugin name, must be in the main plugin file
+//this adds a link under the plugin name, must be in the main plugin file
 add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), static function ($links){
     $settings_link='<a href="' . admin_url( 'options-general.php?page=moviehelper_settings_page' ) . '">General Settings</a>';
 
-    //array_unshit adds to the begin of array
+    //array_unshift adds to the beginning of array
     array_unshift($links, $settings_link);
 
     return $links;

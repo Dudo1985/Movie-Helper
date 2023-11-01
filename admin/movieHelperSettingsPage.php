@@ -126,7 +126,6 @@ class movieHelperSettingsPage {
             'moviehelper_settings'
         );
 
-
         add_settings_field(
             'moviehelper_customize_links',
             movie_helper_customize_links_description(),
@@ -187,6 +186,12 @@ class movieHelperSettingsPage {
     public function customizeLinks () {
         ?>
         <div class="moviehelper-general-settings">
+            <label for="moviehelper-custom-links">
+                <strong>
+                    <?php echo esc_html__('Customize links', 'movie-helper') ?>
+                </strong>
+            </label>
+            <p></p>
             <input
                 type="text"
                 id="moviehelper-custom-links"
@@ -194,16 +199,31 @@ class movieHelperSettingsPage {
                 value="<?php echo esc_attr(MOVIEHELPER_TEXT_AFTER_LINKS) ?>"
                 placeholder="<?php echo esc_html__('(%vote_average%), %year% ')?>"
             >
-            <label for="moviehelper-custom-links">
-            </label>
             <p></p>
-            <div class="moviehelper-element-description" style="margin-top: 10px">
-                <span><strong>Allowed Variables:</strong></span>
-                <p>
+            <div class="moviehelper-element-description" style="margin-top: 10px;">
+                <span>Custom text to show after a link, allowed variables:</span>
+                <p style="margin-left: 10px;">
                     <strong>%year%</strong> - Display the year <br />
                     <strong>%vote_average%</strong> - Display the vote average <br />
                     <strong>%vote_count%</strong> - Display the vote count
                 </p>
+            </div>
+
+            <div>
+                <strong><?php esc_html_e('Open link in new tab?', 'movie-helper') ?></strong>
+                <p></p>
+                <div class="moviehelper-onoffswitch-big">
+                    <input type="checkbox" name="moviehelper_settings[target_blank]"
+                        <?php if (MOVIEHELPER_TARGET_BLANK === true){ echo 'checked="checked"'; }?>
+                           value="true"
+                           class="moviehelper-onoffswitch-checkbox"
+                           id="moviehelper-target-blank"
+                    />
+                    <label class="moviehelper-onoffswitch-label" for="moviehelper-target-blank">
+                        <span class="moviehelper-onoffswitch-inner"></span>
+                        <span class="moviehelper-onoffswitch-switch"></span>
+                    </label>
+                </div>
             </div>
 
         </div>
@@ -217,25 +237,6 @@ class movieHelperSettingsPage {
      */
     public function tmdbSettingsFilterAdult() {
         ?>
-
-        <div>
-            <strong><?php esc_html_e('Open link in new tab?', 'movie-helper') ?></strong>
-            <p></p>
-            <div class="moviehelper-onoffswitch-big">
-                <input type="checkbox" name="moviehelper_tmdb_settings[target_blank]"
-                    <?php if (MOVIEHELPER_TMDB_TARGET_BLANK === true){ echo 'checked="checked"'; }?>
-                       value="true"
-                       class="moviehelper-onoffswitch-checkbox"
-                       id="moviehelper-target-blank"
-                />
-                <label class="moviehelper-onoffswitch-label" for="moviehelper-target-blank">
-                    <span class="moviehelper-onoffswitch-inner"></span>
-                    <span class="moviehelper-onoffswitch-switch"></span>
-                </label>
-            </div>
-        </div>
-
-        <p>&nbsp;</p>
         <div>
             <strong><?php esc_html_e('Include adult content?', 'movie-helper') ?></strong>
             <p></p>
@@ -312,7 +313,7 @@ class movieHelperSettingsPage {
      */
     public function sanitizeTMDBSettings($options) {
         // Create our array for storing the validated options
-        $output = array();
+        $output = [];
 
         // Loop through each of the incoming options
         foreach($options as $key => $value ) {
@@ -418,13 +419,13 @@ class movieHelperSettingsPage {
      */
     private function cnrt() {
         $url = add_query_arg(
-            array(
+            [
                 'tab'       => 'plugin-information',
                 'plugin'    => 'comments-not-replied-to',
                 'TB_iframe' => 'true',
                 'width'     => '772',
                 'height'    => '670'
-            ),
+            ],
             network_admin_url( 'plugin-install.php' )
         );
 

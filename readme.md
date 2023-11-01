@@ -4,8 +4,8 @@ Donate link: https://www.paypal.com/paypalme/dariocurvino
 Tags: movie, tv show, tmdb, movie database, tv links    
 Requires at least: 5.0  
 Contributors: Dudo  
-Tested up to: 6.3
-Stable tag: 1.2.2   
+Tested up to: 6.4
+Stable tag: 1.2.3  
 License: GPL2   
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,14 +32,14 @@ to insert the list to the post.
 
 ## Video Tutorial
 
-[youtube https://www.youtube.com/watch?v=d3PI8si-fS4]
+[youtube https://www.youtube.com/watch?v=QOdCeV7-TR4]
 
 Follow development on [GitHub](https://github.com/Dudo1985/Movie-Helper)
 
 ## Installation
 
 1. Navigate to Dashboard -> Plugins -> Add New and search for Movie Helper
-2. Click on "Install Now" and than "Activate"
+2. Click on "Install Now" and then "Activate"
 
 ## Frequently Asked Questions
 

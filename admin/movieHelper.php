@@ -223,7 +223,9 @@ class movieHelper {
         $mh_options = $this->settings->mh();
 
         //define mh settings
-        define('MOVIEHELPER_TEXT_AFTER_LINKS', $mh_options['txt_after_links']);
+        define('MOVIEHELPER_TEXT_AFTER_LINKS',  $mh_options['txt_after_links']);
+        define('MOVIEHELPER_TARGET_BLANK', $mh_options['target_blank']);
+
     }
 
     /**
@@ -236,7 +238,6 @@ class movieHelper {
         $tmdb_options =  $this->settings->tmdb();
 
         //define tmdb settings
-        define('MOVIEHELPER_TMDB_TARGET_BLANK',  $tmdb_options['target_blank']);
         define('MOVIEHELPER_TMDB_ADULT',         $tmdb_options['include_adult']);
         define('MOVIEHELPER_TMDB_CUSTOM_APIKEY', $tmdb_options['api_key']);
     }
@@ -260,18 +261,18 @@ class movieHelper {
             } else {
                 $error = $valid_api;
             }
-            $transient_value = array(
+            $transient_value = [
                 'error'   => true,
                 'message' => $error
-            );
+            ];
             set_transient('tmdb_api_key', $transient_value, DAY_IN_SECONDS);
             return $error;
         }
 
-        $transient_value = array(
+        $transient_value = [
             'error'   => false,
             'api_key' => $api_key
-        );
+        ];
 
         set_transient('tmdb_api_key', $transient_value, DAY_IN_SECONDS);
         return true;
@@ -324,10 +325,10 @@ class movieHelper {
      * @return bool|string[]|WP_Post_Type[]
      */
     public static function getCustomPostTypes() {
-        $args = array(
+        $args = [
             'public'   => true,
             '_builtin' => false
-        );
+        ];
 
         $output   = 'names'; // names or objects, note names is the default
         $operator = 'and'; // 'and' or 'or'

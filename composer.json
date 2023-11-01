@@ -4,12 +4,15 @@
   "authors": [
     {
       "name": "Dario Curvino",
-      "email": "dario.yasr@gmail.com",
+      "email": "d.curvino@gmail.com",
       "homepage": "https://dariocurvino.it"
     }
   ],
   "require-dev": {
     "dudo1985/wpdocgen": "^2.0"
   },
-  "license": "GPL2"
+  "license": "GPL2",
+    "require": {
+        "ext-json": "*"
+    }
 }

@@ -198,7 +198,7 @@ function movieHelperInsertLink(event, item) {
     let afterLink     = '';
     let targetBlank   = '';
 
-    if(JSON.parse(movieHelperCommonData.tmdb.target_blank) === true) {
+    if(JSON.parse(movieHelperCommonData.target_blank) === true) {
         targetBlank = 'target="_blank"';
     }
 
@@ -280,7 +280,7 @@ function movieHelperCheckJson(str) {
 }
 
 /**
-* When button insert is clicked, create a core/paragrapgh block and insert blockMovieList.innerHTML
+* When button insert is clicked, create a core/paragraph block and insert blockMovieList.innerHTML
 *
 * @param event
 */
@@ -291,7 +291,7 @@ function movieHelperInsertBlock(event) {
 }
 
 /**
- * Return the Year from a date, ora the string N/A if date is not set
+ * Return the Year from a date, or the string N/A if date is not set
  *
  * @param date {string}
  * @returns {string|number}
