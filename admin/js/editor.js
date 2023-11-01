@@ -280,7 +280,7 @@ function movieHelperCheckJson(str) {
 }
 
 /**
-* When button insert is clicked, create a core/paragrapgh block and insert blockMovieList.innerHTML
+* When button insert is clicked, create a core/paragraph block and insert blockMovieList.innerHTML
 *
 * @param event
 */
