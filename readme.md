@@ -68,6 +68,9 @@ Yes, Movie Helper is 100% fully compatible with PHP 8
 
 ## Changelog
 
+= 1.2.3 =
+* Minor changes
+
 = 1.2.2 =
 * TWEAKED: Minor Changes
 
